@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+use App\Models\User;
 
 
 
@@ -66,10 +67,37 @@ class ThemeController extends Controller
         return view("theme.table-basic");
     }
     
-    public function tabledatatable(){
-        // return view for the datatable page after the route
-        return view("theme.table-datatable");
-    }
+    // public function tabledatatable(){
+// read records 
+        // $data = User::find(1);
+        // $data = User::where('name', '=', 'razan')->get();
+        // $data = User::where('name', '=', 'razan')->first();
+
+//create recrd on db
+        // User::create([
+        // 'name' => 'razan',
+        // 'email' => 'razan@example.com',
+        // 'password' => 'hello',
+        // 'birth_of_date'=> '2017-01-10',
+        // 'address' => 'amman',
+        // 'phone_number' => '0785588120',
+        // 'last_name' => 'alhroub',
+        // 'is_deleted' =>'0'
+        // ]);
+        // dd('created successfully');
+
+//update record on db
+        // $user = User::find(3);
+        // $user->update([
+        //     'last_name' => 'alhroubbbbbb',
+        // ]);
+        // dd('updated successfully');
+//delete record on db
+    //     $user = User::find(3)->delete();
+    //     dd('deleted successfully');
+
+    //     return view("theme.table-datatable");
+    // }
     public function ucsweetalert(){
         // return view for the SweetAlert component after the route
         return view("theme.uc-sweetalert");

@@ -3,6 +3,7 @@
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ThemeController;
+use App\Http\Controllers\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -42,12 +43,15 @@ Route::controller(ThemeController::class)->group(function () {
     Route::get('/page-error-500','pageerror500');
     Route::get('/page-error-503','pageerror503');
     Route::get('/page-lock','pagelock');
+    Route::get('/page-lock','pagelock');
     Route::get('/table-basic','tablebasic');
-    Route::get('/table-datatable','tabledatatable');
+    // Route::get('/table-datatable','tabledatatable');
     Route::get('/uc-sweetalert','ucsweetalert');
     Route::get('master','master');
     
    
 });
+
+Route::resource('/table-datatable',UserController::class);
 
 require __DIR__.'/auth.php';
