@@ -1,9 +1,17 @@
 <?php
 
-use App\Http\Controllers\ProfileController;
+use App\Models\Blog;
+use App\Models\Comment;
+use App\Models\Ingredient;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\ThemeController;
+use App\Http\Controllers\BlogController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\ThemeController;
+use App\Http\Controllers\RecipeController;
+use App\Http\Controllers\CommentController;
+use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\IngredientController;
 
 /*
 |--------------------------------------------------------------------------
@@ -45,16 +53,16 @@ Route::controller(ThemeController::class)->group(function () {
     Route::get('/page-lock','pagelock');
     Route::get('/page-lock','pagelock');
     Route::get('/table-basic','tablebasic');
-    // Route::get('/table-datatable','tabledatatable');
     Route::get('/uc-sweetalert','ucsweetalert');
     Route::get('master','master');
-    Route::get('/user/{id}/edit', [UserController::class, 'edit'])->name('user.edit');
-    // Route::put('user-table/update/{id}', [UserController::class, 'update'])->name('user-table.update');
-
-    
    
 });
-
+Route::get('/user/{id}/edit', [UserController::class, 'edit'])->name('user.edit');
 Route::resource('/user-table',UserController::class);
+Route::resource('/categories-table', CategoryController::class);
+Route::resource('/recipes-table', RecipeController::class);
+Route::resource('/ingredients-table', IngredientController::class);
+Route::resource('/Blogs-table', BlogController::class);
+Route::resource('/comments-table', CommentController::class);
 
 require __DIR__.'/auth.php';

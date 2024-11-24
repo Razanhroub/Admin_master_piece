@@ -12,7 +12,7 @@ class RecipeController extends Controller
      */
     public function index()
     {
-        //
+        return view('theme.recipes-table');
     }
 
     /**

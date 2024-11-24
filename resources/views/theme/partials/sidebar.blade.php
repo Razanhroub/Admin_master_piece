@@ -10,6 +10,11 @@
                     <li><a href="home">Home </a></li>
                     <li><a href="table-basic" aria-expanded="false">Basic Table</a></li>
                     <li><a href="user-table" aria-expanded="false">User Table</a></li>
+                    <li><a href="categories-table" aria-expanded="false">Categories Table</a></li>
+                    <li><a href="recipes-table" aria-expanded="false">Recipes Table</a></li>
+                    <li><a href="ingredients-table" aria-expanded="false">Ingredients Table</a></li>
+                    <li><a href="Blogs-table" aria-expanded="false">Blogs table</a></li>
+                    <li><a href="comments-table" aria-expanded="false">Approve comments</a></li>
                     <li><a href="app-calender">Calender</a></li>
                     <li><a href="app-profile">Profile</a></li>
                     <li><a href="chart-morris">Morris</a></li>

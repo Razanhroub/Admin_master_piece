@@ -12,7 +12,7 @@ class CommentController extends Controller
      */
     public function index()
     {
-        //
+        return view('theme.comments-table');
     }
 
     /**

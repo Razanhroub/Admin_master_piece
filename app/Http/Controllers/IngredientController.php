@@ -12,7 +12,7 @@ class IngredientController extends Controller
      */
     public function index()
     {
-        //
+        return view('theme.ingredients-table');
     }
 
     /**
