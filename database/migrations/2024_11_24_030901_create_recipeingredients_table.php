@@ -18,6 +18,7 @@ return new class extends Migration
             $table->tinyInteger('is_deleted')->default(0);
             $table->foreign('recipe_id')->references('recipe_id')->on('recipes');
             $table->foreign('ingredient_id')->references('ingredient_id')->on('ingredients');
+            $table->engine = 'InnoDB';
         });
     }
 

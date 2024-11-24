@@ -19,6 +19,7 @@ return new class extends Migration
             $table->tinyInteger('is_deleted')->default(0);
             $table->foreign('follower_id')->references('id')->on('users');
             $table->foreign('following_id')->references('id')->on('users');
+            $table->engine = 'InnoDB';
         });
     }
 

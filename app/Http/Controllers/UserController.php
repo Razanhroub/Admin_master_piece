@@ -12,8 +12,9 @@ class UserController extends Controller
      */
     public function index()
     {
-        $users = User::all(); // Fetch all users
+        $users = User::where('is_deleted', 0)->get(); // Fetch all users where is_deleted is 0
         return view('theme.user-table', compact('users'));
+
 
         //href = {{ route( table-datatable.create) }} in front
         // read records 
@@ -58,8 +59,8 @@ class UserController extends Controller
 
         // Create the user record
         User::create([
-            'name' => $validated['first_name'] ,
-            'last_name'=>$validated['last_name'], 
+            'name' => $validated['first_name'],
+            'last_name' => $validated['last_name'],
             'email' => $validated['email'],
             'password' => bcrypt($validated['password']),
             'phone_number' => $validated['phone_number'],
@@ -81,9 +82,6 @@ class UserController extends Controller
         //
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
     public function edit($id)
     {
         $user = User::findOrFail($id);
@@ -95,42 +93,42 @@ class UserController extends Controller
      * Update the specified resource in storage.
      */
     public function update(Request $request, $id)
-{
-    $user = User::findOrFail($id);
+    {
+        $user = User::findOrFail($id);
 
-    // Validate input fields
-    $validated = $request->validate([
-        'first_name' => 'nullable|string|max:255',
-        'last_name' => 'nullable|string|max:255',
-        'email' => 'nullable|email|unique:users,email,' . $id,
-        'phone_number' => 'nullable|numeric|digits:14',
-        'address' => 'nullable|string|max:255',
-    ]);
+        // Validate input fields
+        $validated = $request->validate([
+            'first_name' => 'nullable|string|max:255',
+            'last_name' => 'nullable|string|max:255',
+            'email' => 'nullable|email|unique:users,email,' . $id,
+            'phone_number' => 'nullable|numeric|digits:14',
+            'address' => 'nullable|string|max:255',
+        ]);
 
-    // Update first_name and last_name separately if provided
-    if ($validated['first_name']) {
-        $user->name = $validated['first_name']; // Assuming 'name' stores first name
+        // Update first_name and last_name separately if provided
+        if ($validated['first_name']) {
+            $user->name = $validated['first_name']; // Assuming 'name' stores first name
+        }
+        if ($validated['last_name']) {
+            $user->last_name = $validated['last_name'];
+        }
+
+        // Update other fields if provided
+        $user->email = $validated['email'] ?? $user->email;
+        $user->phone_number = $validated['phone_number'] ?? $user->phone_number;
+        $user->address = $validated['address'] ?? $user->address;
+
+        // Save changes
+        $user->save();
+
+        return response()->json([
+            'message' => 'User updated successfully'
+        ]);
     }
-    if ($validated['last_name']) {
-        $user->last_name = $validated['last_name'];
-    }
-
-    // Update other fields if provided
-    $user->email = $validated['email'] ?? $user->email;
-    $user->phone_number = $validated['phone_number'] ?? $user->phone_number;
-    $user->address = $validated['address'] ?? $user->address;
-
-    // Save changes
-    $user->save();
-
-    return response()->json([
-        'message' => 'User updated successfully'
-    ]);
-}
 
 
-    
-    
+
+
 
     /**
      * Remove the specified resource from storage.
@@ -140,8 +138,9 @@ class UserController extends Controller
         // Find the user by ID
         $user = User::findOrFail($id);
 
-        // Delete the user
-        $user->delete();
+        // Mark the user as deleted by setting is_deleted to 1
+        $user->is_deleted = 1;
+        $user->save(); // Save the changes
 
         // Redirect back with a success message
         return redirect()->route('user-table.index')->with('success', 'User deleted successfully!');

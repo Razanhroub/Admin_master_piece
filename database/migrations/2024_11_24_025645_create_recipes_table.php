@@ -21,12 +21,14 @@ return new class extends Migration
             $table->text('instructions');               // Recipe instructions
             $table->timestamps();                      // Created_at and updated_at timestamps
             $table->tinyInteger('is_deleted')->default(0);
+            
             // Foreign key constraint for linking to blogs table
             $table->foreign('blog_id')->references('blog_id')->on('blogs');
             // Foreign key constraint for linking to sub_categories table (nullable)
-            $table->foreign('sub_category_id')->references('sub_category_id')->on('sub_categories');
+            $table->foreign('sub_category_id')->references('subcategory_id')->on('subcategories');
             // Foreign key constraint for linking to ingredients table
             $table->foreign('ingredient_id')->references('ingredient_id')->on('ingredients');
+            $table->engine = 'InnoDB';
         });
         
     }

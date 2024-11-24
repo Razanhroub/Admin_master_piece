@@ -2,64 +2,65 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Category;
 use Illuminate\Http\Request;
+use App\Models\Recipe;
+
+use App\Models\Subcategory;
+
+use App\Models\Category;
 
 class CategoryController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
     public function index()
     {
-        return view('theme.categories-table');
+        // Fetch categories with their associated subcategories
+        $categories = Category::with('subcategories')  // Eager load subcategories
+            ->where('is_deleted', 0)
+            ->get();
+        
+        // Fetch active subcategories and recipes
+        $subcategories = Subcategory::where('is_deleted', 0)->get();
+        $recipes = Recipe::where('is_deleted', 0)->get();
+        // dd(count($subcategories));
+    // dd($recipes);
+        // Return the view with the data
+        return view('theme.categories-table', compact('categories', 'subcategories', 'recipes'));
     }
+    
 
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     */
     public function store(Request $request)
     {
-        //
+        $validated = $request->validate([
+            'category_name' => 'required|string|max:255',
+            'category_image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048', // Add validation for image
+        ]);
+
+        if ($request->hasFile('category_image')) {
+            $imageName = time() . '.' . $request->category_image->extension();
+            $request->category_image->move(public_path('assets/images/category'), $imageName);
+            $validated['category_image'] = $imageName;
+        }
+
+        Category::create($validated);
+
+        return redirect()->route('categories.index')->with('success', 'Category created successfully!');
     }
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(Category $category)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(Category $category)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     */
     public function update(Request $request, Category $category)
     {
-        //
-    }
+        $validated = $request->validate([
+            'category_name' => 'required|string|max:255',
+            'category_image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048', // Add validation for image
+        ]);
 
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(Category $category)
-    {
-        //
+        if ($request->hasFile('category_image')) {
+            $imageName = time() . '.' . $request->category_image->extension();
+            $request->category_image->move(public_path('assets/images/category'), $imageName);
+            $validated['category_image'] = $imageName;
+        }
+
+        $category->update($validated);
+
+        return redirect()->route('categories.index')->with('success', 'Category updated successfully!');
     }
 }

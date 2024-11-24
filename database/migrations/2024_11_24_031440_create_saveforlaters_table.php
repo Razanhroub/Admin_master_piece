@@ -22,6 +22,7 @@ return new class extends Migration
             $table->foreign('user_id')->references('id')->on('users');
             $table->foreign('blog_id')->references('blog_id')->on('blogs');
             $table->unique(['user_id', 'blog_id']);
+            $table->engine = 'InnoDB';
         });
 
     }

@@ -16,6 +16,7 @@ return new class extends Migration
             $table->string('ingredient_name');         // Name of the ingredient
             $table->tinyInteger('is_deleted')->default(0);
             $table->timestamps();          // Created_at and updated_at timestamps
+            $table->engine = 'InnoDB';
         });
     }
 

@@ -20,6 +20,7 @@ return new class extends Migration
             $table->tinyInteger('is_deleted')->default(0);
             $table->foreign('user_id')->references('id')->on('users');
             $table->foreign('blog_id')->references('blog_id')->on('blogs');
+            $table->engine = 'InnoDB';
         });
 
     }

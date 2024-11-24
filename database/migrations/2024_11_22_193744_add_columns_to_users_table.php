@@ -21,6 +21,9 @@ return new class extends Migration
             $table->enum('role', ['admin', 'user'])->default('admin'); // Keep role with default value of 'user'
             $table->string('profile_picture')->nullable(); // Set profile_picture as nullable
             
+            
+
+            
         });
     }
 

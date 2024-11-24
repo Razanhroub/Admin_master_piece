@@ -15,8 +15,11 @@ return new class extends Migration
             $table->id('category_id');
             $table->string('category_name');
             $table->tinyInteger('is_deleted')->default(0);
+            $table->string('category_image')->nullable(); 
             $table->timestamps();
+            $table->engine = 'InnoDB';
         });
+        
     }
 
     /**

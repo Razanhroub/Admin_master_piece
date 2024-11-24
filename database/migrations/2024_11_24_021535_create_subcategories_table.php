@@ -18,7 +18,12 @@ return new class extends Migration
             $table->tinyInteger('is_deleted')->default(0);
             $table->foreign('category_id')->references('category_id')->on('categories'); // Use category_id from categories table
             $table->timestamps();
+            $table->engine = 'InnoDB';
+
+            
+
         });
+        
     }
     
 

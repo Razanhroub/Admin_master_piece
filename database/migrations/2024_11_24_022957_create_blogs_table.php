@@ -22,6 +22,8 @@ return new class extends Migration
             $table->tinyInteger('is_deleted')->default(0);
             // Foreign key constraint to link with users table
             $table->foreign('user_id')->references('id')->on('users');
+            $table->engine = 'InnoDB';
+
 
         });
     }

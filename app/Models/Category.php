@@ -8,14 +8,10 @@ use Illuminate\Database\Eloquent\Model;
 class Category extends Model
 {
     use HasFactory;
-    protected $fillable = [
-        'category_name',
-        'is_deleted'
-    ];
+    protected $fillable = ['category_name', 'category_image', 'is_deleted'];
 
-    // Relationships
     public function subcategories()
     {
-        return $this->hasMany(Subcategory::class);
+        return $this->hasMany(Subcategory::class, 'category_id');
     }
 }
