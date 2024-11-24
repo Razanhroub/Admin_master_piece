@@ -20,6 +20,7 @@ return new class extends Migration
             $table->tinyInteger('is_deleted')->default(0); // Keep is_deleted with default value of 0
             $table->enum('role', ['admin', 'user'])->default('admin'); // Keep role with default value of 'user'
             $table->string('profile_picture')->nullable(); // Set profile_picture as nullable
+            
         });
     }
 
