@@ -360,7 +360,7 @@
                         </a>
                         <ul aria-expanded="false">
                             <li><a href="table-basic" aria-expanded="false">Basic Table</a></li>
-                            <li><a href="table-datatable" aria-expanded="false">Data Table</a></li>
+                            <li><a href="user-table" aria-expanded="false">Data Table</a></li>
                         </ul>
                     </li>
                     <li class="nav-label">Pages</li>

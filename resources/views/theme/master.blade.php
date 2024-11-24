@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <html lang="en">
 
 @include('theme.partials.head')

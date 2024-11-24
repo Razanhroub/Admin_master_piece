@@ -9,7 +9,7 @@
                 <ul aria-expanded="false">
                     <li><a href="home">Home </a></li>
                     <li><a href="table-basic" aria-expanded="false">Basic Table</a></li>
-                    <li><a href="table-datatable" aria-expanded="false">Data Table</a></li>
+                    <li><a href="user-table" aria-expanded="false">User Table</a></li>
                     <li><a href="app-calender">Calender</a></li>
                     <li><a href="app-profile">Profile</a></li>
                     <li><a href="chart-morris">Morris</a></li>

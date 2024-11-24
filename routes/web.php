@@ -48,10 +48,13 @@ Route::controller(ThemeController::class)->group(function () {
     // Route::get('/table-datatable','tabledatatable');
     Route::get('/uc-sweetalert','ucsweetalert');
     Route::get('master','master');
+    Route::get('/user/{id}/edit', [UserController::class, 'edit'])->name('user.edit');
+    // Route::put('user-table/update/{id}', [UserController::class, 'update'])->name('user-table.update');
+
     
    
 });
 
-Route::resource('/table-datatable',UserController::class);
+Route::resource('/user-table',UserController::class);
 
 require __DIR__.'/auth.php';
