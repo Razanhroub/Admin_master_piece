@@ -19,5 +19,6 @@
     <link rel="stylesheet" href="{{ asset('assets') }}/plugins/chartist-plugin-tooltips/css/chartist-plugin-tooltip.css">
     <!-- Custom Stylesheet -->
     <link href="{{ asset('assets') }}/css/style.css" rel="stylesheet">
+    {{-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"> --}}
 
 </head>

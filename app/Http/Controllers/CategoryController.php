@@ -13,54 +13,88 @@ class CategoryController extends Controller
 {
     public function index()
     {
-        // Fetch categories with their associated subcategories
+
         $categories = Category::with('subcategories')  // Eager load subcategories
-            ->where('is_deleted', 0)
             ->get();
-        
+
+        // dd($categories);
+
         // Fetch active subcategories and recipes
         $subcategories = Subcategory::where('is_deleted', 0)->get();
         $recipes = Recipe::where('is_deleted', 0)->get();
         // dd(count($subcategories));
-    // dd($recipes);
+        // dd($recipes);
         // Return the view with the data
         return view('theme.categories-table', compact('categories', 'subcategories', 'recipes'));
     }
-    
+
 
     public function store(Request $request)
     {
-        $validated = $request->validate([
-            'category_name' => 'required|string|max:255',
-            'category_image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048', // Add validation for image
+        $request->validate([
+            'category_name' => 'required|string|max:255|unique:categories,category_name',
+            'category_image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ]);
 
+        $category = new Category();
+        $category->category_name = $request->category_name;
+
         if ($request->hasFile('category_image')) {
-            $imageName = time() . '.' . $request->category_image->extension();
-            $request->category_image->move(public_path('assets/images/category'), $imageName);
-            $validated['category_image'] = $imageName;
+            $image = $request->file('category_image');
+            $imageName = time() . '.' . $image->getClientOriginalExtension();
+            $image->move(public_path('assets/images/category'), $imageName);
+            $category->category_image = $imageName;
         }
 
-        Category::create($validated);
+        $category->save();
 
-        return redirect()->route('categories.index')->with('success', 'Category created successfully!');
+        return redirect()->route('categories-table.index')->with('success', 'Category created successfully.');
     }
 
-    public function update(Request $request, Category $category)
+    public function update(Request $request, $id)
     {
-        $validated = $request->validate([
-            'category_name' => 'required|string|max:255',
-            'category_image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048', // Add validation for image
+        $request->validate([
+            'category_name' => 'required|string|max:255|unique:categories,category_name,' . $id . ',category_id',
+            'category_image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ]);
 
+        $category = Category::findOrFail($id);
+        $category->category_name = $request->category_name;
+
         if ($request->hasFile('category_image')) {
-            $imageName = time() . '.' . $request->category_image->extension();
-            $request->category_image->move(public_path('assets/images/category'), $imageName);
-            $validated['category_image'] = $imageName;
+            // Delete the old image if it exists
+            if ($category->category_image) {
+                $oldImagePath = public_path('assets/images/category/' . $category->category_image);
+                if (file_exists($oldImagePath)) {
+                    unlink($oldImagePath);
+                }
+            }
+
+            $image = $request->file('category_image');
+            $imageName = time() . '.' . $image->getClientOriginalExtension();
+            $image->move(public_path('assets/images/category'), $imageName);
+            $category->category_image = $imageName;
         }
 
-        $category->update($validated);
+        $category->save();
 
-        return redirect()->route('categories.index')->with('success', 'Category updated successfully!');
+        return response()->json(['message' => 'Category updated successfully.']);
+    }
+    public function destroy(string $id)
+    {
+
+        $category = Category::findOrFail($id);
+        // dd  ($category_id);
+        $category->is_deleted = 1;
+
+        $category->save();
+
+        // Redirect back with a success message
+        return redirect()->route('categories-table.index')->with('success', 'User deleted successfully!');
+    }
+    public function edit($id)
+    {
+        $category = Category::findOrFail($id);
+        return response()->json($category);
     }
 }

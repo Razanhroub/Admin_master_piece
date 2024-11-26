@@ -64,5 +64,8 @@ Route::resource('/recipes-table', RecipeController::class);
 Route::resource('/ingredients-table', IngredientController::class);
 Route::resource('/Blogs-table', BlogController::class);
 Route::resource('/comments-table', CommentController::class);
+// Route to display the edit form
 
+Route::get('/categories-table/{id}/edit', [CategoryController::class, 'edit'])->name('categories-table.edit');
+Route::put('/categories-table/{id}', [CategoryController::class, 'update'])->name('categories-table.update');
 require __DIR__.'/auth.php';
