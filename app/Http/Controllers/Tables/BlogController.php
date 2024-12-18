@@ -1,18 +1,19 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Tables;
 
-use App\Models\Subcategory;
+use App\Http\Controllers\Controller; 
 use Illuminate\Http\Request;
+use App\Models\Blog;
 
-class SubcategoryController extends Controller
+class BlogController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        //
+        return view('theme.Blogs-table');
     }
 
     /**
@@ -34,7 +35,7 @@ class SubcategoryController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Subcategory $subcategory)
+    public function show(Blog $blog)
     {
         //
     }
@@ -42,7 +43,7 @@ class SubcategoryController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Subcategory $subcategory)
+    public function edit(Blog $blog)
     {
         //
     }
@@ -50,7 +51,7 @@ class SubcategoryController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Subcategory $subcategory)
+    public function update(Request $request, Blog $blog)
     {
         //
     }
@@ -58,7 +59,7 @@ class SubcategoryController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Subcategory $subcategory)
+    public function destroy(Blog $blog)
     {
         //
     }

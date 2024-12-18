@@ -20,12 +20,12 @@
                     <div class="card">
                         <div class="card-body">
                             <div style="display: flex; justify-content: space-between;">
-                                <h4 class="card-title">Categories table </h4>
+                                <h4 class="card-title">Sub-Categories table </h4>
                                 <a href="{{ asset('modals') }}/user-modal" class="btn mb-1 btn-outline-primary"
                                     data-toggle="modal" data-target="#exampleModalLong">
-                                    Add New Category
+                                    Add New Sub-Category
                                 </a>
-                                <!-- Modal -->
+                                {{-- <!-- Modal -->
                                 <div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog"
                                     aria-labelledby="exampleModalLongTitle" aria-hidden="true">
                                     <div class="modal-dialog" role="document">
@@ -72,11 +72,11 @@
                                         </div>
                                     </div>
                                 </div>
-                            </div>
+                            </div> --}}
 
 
 
-                            <h4 class="card-title">Number of Categories:{{ $categories->count() }} </h4>
+                            <h4 class="card-title">Number of Categories:{{ $sub_category->count() }} </h4>
                             @if (session('success'))
                                 <div class="alert alert-success">
                                     {{ session('success') }}
@@ -105,32 +105,32 @@
                                             <tr style="font-size: 14px;">
                                                 <td>{{ $index + 1 }}</td> <!-- Numbering Column -->
                                                 <td>{{ $category->category_name }}</td>
-                                                <td>
+                                                {{-- <td>
                                                     @if ($category->category_image)
                                                         <img src="{{ asset('assets/images/category/' . $category->category_image) }}"
                                                             alt="{{ $category->category_name }}" width="50">
                                                     @else
                                                         No Image
                                                     @endif
-                                                </td>
+                                                </td> --}}
 
 
-                                                <td>
+                                                {{-- <td>
                                                     @if ($category->is_deleted)
                                                         <span class="badge badge-danger px-3 py-1">Deleted</span>
                                                     @else
                                                         <span class="badge badge-success px-3 py-1">Active</span>
                                                     @endif
-                                                </td>
-                                                <td style="display: flex; justify-content: space-between;">
+                                                </td> --}}
+                                                {{-- <td style="display: flex; justify-content: space-between;">
                                                     <button type="button" class="btn btn-link p-0 px-2"
                                                         data-toggle="tooltip" data-placement="top" title="Edit"
                                                         onclick="editCategory({{ $category->category_id }})">
                                                         <i class="fa fa-pencil color-muted"></i>
-                                                    </button>
+                                                    </button> --}}
 
 
-                                                    <!-- Modal -->
+                                                    {{-- <!-- Modal -->
                                                     <div class="modal fade"
                                                         id="editCategoryModal-{{ $category->category_id }}" tabindex="-1"
                                                         role="dialog"
@@ -202,8 +202,8 @@
                                                                 </form>
                                                             </div>
                                                         </div>
-                                                    </div>
-                                                    <script>
+                                                    </div> --}}
+                                                    {{-- <script>
                                                         console.log('{{ route('categories-table.update', $category->category_id) }}');
 
                                                         $("#editCategoryForm-{{ $category->category_id }}").on('submit', function(e) {
@@ -258,7 +258,7 @@
                                                         </button>
                                                     </form>
                                                 </td>
-                                            </tr>
+                                            </tr> --}}
                                         @endforeach
                                     </tbody>
                                     <tfoot>
@@ -279,7 +279,7 @@
         </div>
         <!-- #/ container -->
     </div>
-    <script>
+    {{-- <script>
         function confirmDelete(CategoryId) {
             Swal.fire({
                 title: "Are you sure?",
@@ -355,7 +355,7 @@
                 },
             });
         });
-    </script>
+    </script> --}}
 
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script> <!-- SweetAlert2 -->
 @endsection

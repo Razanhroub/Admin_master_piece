@@ -1,18 +1,20 @@
 <?php
+namespace App\Http\Controllers\Tables;
 
-namespace App\Http\Controllers;
-
-use App\Models\Recipeingredient;
+use App\Http\Controllers\Controller; 
 use Illuminate\Http\Request;
+use App\Models\Subcategory;
 
-class RecipeingredientController extends Controller
+class SubcategoryController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        //
+            $subcategories = Subcategory::all();
+        return view('theme.subcategories', compact('subcategories'));
+
     }
 
     /**
@@ -34,7 +36,7 @@ class RecipeingredientController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Recipeingredient $recipeingredient)
+    public function show(Subcategory $subcategory)
     {
         //
     }
@@ -42,7 +44,7 @@ class RecipeingredientController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Recipeingredient $recipeingredient)
+    public function edit(Subcategory $subcategory)
     {
         //
     }
@@ -50,7 +52,7 @@ class RecipeingredientController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Recipeingredient $recipeingredient)
+    public function update(Request $request, Subcategory $subcategory)
     {
         //
     }
@@ -58,7 +60,7 @@ class RecipeingredientController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Recipeingredient $recipeingredient)
+    public function destroy(Subcategory $subcategory)
     {
         //
     }

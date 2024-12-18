@@ -1,18 +1,18 @@
 <?php
+namespace App\Http\Controllers\Tables;
 
-namespace App\Http\Controllers;
-
-use App\Models\Saveforlater;
+use App\Http\Controllers\Controller; 
 use Illuminate\Http\Request;
+use App\Models\Comment;
 
-class SaveforlaterController extends Controller
+class CommentController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        //
+        return view('theme.comments-table');
     }
 
     /**
@@ -34,7 +34,7 @@ class SaveforlaterController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Saveforlater $saveforlater)
+    public function show(Comment $comment)
     {
         //
     }
@@ -42,7 +42,7 @@ class SaveforlaterController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Saveforlater $saveforlater)
+    public function edit(Comment $comment)
     {
         //
     }
@@ -50,7 +50,7 @@ class SaveforlaterController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Saveforlater $saveforlater)
+    public function update(Request $request, Comment $comment)
     {
         //
     }
@@ -58,7 +58,7 @@ class SaveforlaterController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Saveforlater $saveforlater)
+    public function destroy(Comment $comment)
     {
         //
     }

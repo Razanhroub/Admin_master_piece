@@ -3,15 +3,18 @@
 use App\Models\Blog;
 use App\Models\Comment;
 use App\Models\Ingredient;
+use App\Models\Subcategory;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\BlogController;
-use App\Http\Controllers\UserController;
+use App\Http\Controllers\Tables\BlogController;
+use App\Http\Controllers\Tables\UserController;
 use App\Http\Controllers\ThemeController;
-use App\Http\Controllers\RecipeController;
-use App\Http\Controllers\CommentController;
+use App\Http\Controllers\Tables\RecipeController;
+use App\Http\Controllers\Tables\CommentController;
 use App\Http\Controllers\ProfileController;
-use App\Http\Controllers\CategoryController;
-use App\Http\Controllers\IngredientController;
+use App\Http\Controllers\Tables\CategoryController;
+use App\Http\Controllers\Tables\IngredientController;
+use App\Http\Controllers\Tables\SubcategoryController;
+use App\Http\Controllers\UserSideController;
 
 /*
 |--------------------------------------------------------------------------
@@ -60,6 +63,7 @@ Route::controller(ThemeController::class)->group(function () {
 Route::get('/user/{id}/edit', [UserController::class, 'edit'])->name('user.edit');
 Route::resource('/user-table',UserController::class);
 Route::resource('/categories-table', CategoryController::class);
+Route::resource('/subcategories', SubcategoryController::class);
 Route::resource('/recipes-table', RecipeController::class);
 Route::resource('/ingredients-table', IngredientController::class);
 Route::resource('/Blogs-table', BlogController::class);
@@ -67,5 +71,4 @@ Route::resource('/comments-table', CommentController::class);
 // Route to display the edit form
 
 Route::get('/categories-table/{id}/edit', [CategoryController::class, 'edit'])->name('categories-table.edit');
-Route::put('/categories-table/{id}', [CategoryController::class, 'update'])->name('categories-table.update');
 require __DIR__.'/auth.php';

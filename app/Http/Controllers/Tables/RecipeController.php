@@ -1,18 +1,18 @@
 <?php
+namespace App\Http\Controllers\Tables;
 
-namespace App\Http\Controllers;
-
-use App\Models\Follower;
+use App\Http\Controllers\Controller; 
 use Illuminate\Http\Request;
+use App\Models\Recipe;
 
-class FollowerController extends Controller
+class RecipeController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        //
+        return view('theme.recipes-table');
     }
 
     /**
@@ -34,7 +34,7 @@ class FollowerController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Follower $follower)
+    public function show(Recipe $recipe)
     {
         //
     }
@@ -42,7 +42,7 @@ class FollowerController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Follower $follower)
+    public function edit(Recipe $recipe)
     {
         //
     }
@@ -50,7 +50,7 @@ class FollowerController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Follower $follower)
+    public function update(Request $request, Recipe $recipe)
     {
         //
     }
@@ -58,7 +58,7 @@ class FollowerController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Follower $follower)
+    public function destroy(Recipe $recipe)
     {
         //
     }

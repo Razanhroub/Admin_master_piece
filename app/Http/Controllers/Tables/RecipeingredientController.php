@@ -1,18 +1,19 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Tables;
 
-use App\Models\Blog;
+use App\Http\Controllers\Controller; 
 use Illuminate\Http\Request;
+use App\Models\Recipeingredient;
 
-class BlogController extends Controller
+class RecipeingredientController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        return view('theme.Blogs-table');
+        //
     }
 
     /**
@@ -34,7 +35,7 @@ class BlogController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Blog $blog)
+    public function show(Recipeingredient $recipeingredient)
     {
         //
     }
@@ -42,7 +43,7 @@ class BlogController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Blog $blog)
+    public function edit(Recipeingredient $recipeingredient)
     {
         //
     }
@@ -50,7 +51,7 @@ class BlogController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Blog $blog)
+    public function update(Request $request, Recipeingredient $recipeingredient)
     {
         //
     }
@@ -58,7 +59,7 @@ class BlogController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Blog $blog)
+    public function destroy(Recipeingredient $recipeingredient)
     {
         //
     }

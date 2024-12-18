@@ -1,13 +1,13 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Tables;
 
-use Illuminate\Http\Request;
+use App\Http\Controllers\Controller; 
 use App\Models\Recipe;
-
+use Illuminate\Http\Request;
 use App\Models\Subcategory;
-
 use App\Models\Category;
+
 
 class CategoryController extends Controller
 {

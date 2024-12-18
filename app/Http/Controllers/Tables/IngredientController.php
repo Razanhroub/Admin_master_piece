@@ -1,18 +1,19 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Tables;
 
-use App\Models\Rating;
+use App\Http\Controllers\Controller; 
 use Illuminate\Http\Request;
+use App\Models\Ingredient;
 
-class RatingController extends Controller
+class IngredientController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        //
+        return view('theme.ingredients-table');
     }
 
     /**
@@ -34,7 +35,7 @@ class RatingController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Rating $rating)
+    public function show(Ingredient $ingredient)
     {
         //
     }
@@ -42,7 +43,7 @@ class RatingController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Rating $rating)
+    public function edit(Ingredient $ingredient)
     {
         //
     }
@@ -50,7 +51,7 @@ class RatingController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Rating $rating)
+    public function update(Request $request, Ingredient $ingredient)
     {
         //
     }
@@ -58,7 +59,7 @@ class RatingController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Rating $rating)
+    public function destroy(Ingredient $ingredient)
     {
         //
     }

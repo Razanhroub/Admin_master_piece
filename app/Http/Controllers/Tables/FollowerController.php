@@ -1,18 +1,19 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Tables;
 
-use App\Models\Comment;
+use App\Http\Controllers\Controller; 
 use Illuminate\Http\Request;
+use App\Models\Follower;
 
-class CommentController extends Controller
+class FollowerController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        return view('theme.comments-table');
+        //
     }
 
     /**
@@ -34,7 +35,7 @@ class CommentController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Comment $comment)
+    public function show(Follower $follower)
     {
         //
     }
@@ -42,7 +43,7 @@ class CommentController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Comment $comment)
+    public function edit(Follower $follower)
     {
         //
     }
@@ -50,7 +51,7 @@ class CommentController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Comment $comment)
+    public function update(Request $request, Follower $follower)
     {
         //
     }
@@ -58,7 +59,7 @@ class CommentController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Comment $comment)
+    public function destroy(Follower $follower)
     {
         //
     }

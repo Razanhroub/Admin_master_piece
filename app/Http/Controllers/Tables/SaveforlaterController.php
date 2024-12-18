@@ -1,18 +1,17 @@
 <?php
+namespace App\Http\Controllers\Tables;
 
-namespace App\Http\Controllers;
-
-use App\Models\Ingredient;
+use App\Http\Controllers\Controller; 
 use Illuminate\Http\Request;
-
-class IngredientController extends Controller
+use App\Models\Saveforlater;
+class SaveforlaterController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        return view('theme.ingredients-table');
+        //
     }
 
     /**
@@ -34,7 +33,7 @@ class IngredientController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Ingredient $ingredient)
+    public function show(Saveforlater $saveforlater)
     {
         //
     }
@@ -42,7 +41,7 @@ class IngredientController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Ingredient $ingredient)
+    public function edit(Saveforlater $saveforlater)
     {
         //
     }
@@ -50,7 +49,7 @@ class IngredientController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Ingredient $ingredient)
+    public function update(Request $request, Saveforlater $saveforlater)
     {
         //
     }
@@ -58,7 +57,7 @@ class IngredientController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Ingredient $ingredient)
+    public function destroy(Saveforlater $saveforlater)
     {
         //
     }
