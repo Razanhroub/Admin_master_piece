@@ -68,7 +68,17 @@ Route::resource('/recipes-table', RecipeController::class);
 Route::resource('/ingredients-table', IngredientController::class);
 Route::resource('/Blogs-table', BlogController::class);
 Route::resource('/comments-table', CommentController::class);
-// Route to display the edit form
+// Route to display the edit form 
 
 Route::get('/categories-table/{id}/edit', [CategoryController::class, 'edit'])->name('categories-table.edit');
+Route::controller(UserSideController::class)->group(function () {
+    Route::get('/home', 'home');
+    Route::get('/menu', 'menu');
+    Route::get('/blog', 'blog');
+    Route::get('/contact', 'contact');
+    Route::get('/about', 'about');
+    Route::get('/reservation', 'reservation');
+
+
+});
 require __DIR__.'/auth.php';
