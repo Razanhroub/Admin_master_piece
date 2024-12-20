@@ -54,7 +54,7 @@
 
   <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
     <div class="container">
-      <a class="navbar-brand" href="index.php">
+      <a class="navbar-brand" href="home">
         <img src="{{ asset('Userassets') }}/images/logo_icon.png" alt="icon">
         <span>Dishlecious</span>
       </a>
@@ -65,12 +65,12 @@
 
       <div class="collapse navbar-collapse" id="ftco-nav">
         <ul class="navbar-nav ml-auto">
-          <li class="nav-item active"><a href="index.php" class="nav-link">Home</a></li>
-          <li class="nav-item"><a href="menu.php" class="nav-link">Menu</a></li>
-          <li class="nav-item"><a href="blog.php" class="nav-link">Blog</a></li>
-          <li class="nav-item"><a href="contact.php" class="nav-link">Contact</a></li>
-          <li class="nav-item"><a href="about.php" class="nav-link">About us </a></li>
-          <li class="nav-item cta"><a href="reservation.php" class="nav-link">Book a table</a></li>
+          <li class="nav-item active"><a href="home" class="nav-link">Home</a></li>
+          <li class="nav-item"><a href="menu" class="nav-link">Menu</a></li>
+          <li class="nav-item"><a href="blog" class="nav-link">Blog</a></li>
+          <li class="nav-item"><a href="contact" class="nav-link">Contact</a></li>
+          <li class="nav-item"><a href="about" class="nav-link">About us </a></li>
+          <li class="nav-item cta"><a href="reservation" class="nav-link">Book a table</a></li>
         </ul>
       </div>
     </div>
@@ -83,7 +83,7 @@
         <div class="row no-gutters slider-text align-items-end justify-content-center">
           <div class="col-md-9 ftco-animate text-center">
             <h1 class="mb-2 bread">Reservation</h1>
-            <p class="breadcrumbs"><span class="mr-2"><a href="index.php">Home <i class="ion-ios-arrow-forward"></i></a></span> <span>Reservation <i class="ion-ios-arrow-forward"></i></span></p>
+            <p class="breadcrumbs"><span class="mr-2"><a href="home">Home <i class="ion-ios-arrow-forward"></i></a></span> <span>Reservation <i class="ion-ios-arrow-forward"></i></span></p>
           </div>
         </div>
       </div>
