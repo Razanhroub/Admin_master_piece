@@ -9449,9 +9449,9 @@ textarea.form-control {
   border-radius: 16px;
   opacity: 0;
   visibility: hidden;
-  -webkit-transition: opacity .2s ease-out, visibility 0s linear .2s;
-  -o-transition: opacity .2s ease-out, visibility 0s linear .2s;
-  transition: opacity .2s ease-out, visibility 0s linear .2s;
+  -webkit-transition: opacity 1.5s ease-out, visibility 0s linear 1.5s;
+  -o-transition: opacity 1.5s ease-out, visibility 0s linear 1.5s;
+  transition: opacity 1.5s ease-out, visibility 0s linear 1.5s;
   z-index: 1000; }
 
 #ftco-loader.fullscreen {
@@ -9524,3 +9524,34 @@ textarea.form-control {
   100% {
     stroke-dasharray: 89, 200;
     stroke-dashoffset: -136px; } }
+  body, html {
+        height: 100%;
+        margin: 0;
+    }
+
+    .fullscreen {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100%;
+    }
+
+    #ftco-loader {
+        animation: fadeOut 10s forwards;
+    }
+
+    .rotating-icon {
+        animation: rotateShake 0.5s infinite;
+    }
+
+    @keyframes fadeOut {
+        0% { opacity: 1; }
+        100% { opacity: 0; }
+    }
+
+    @keyframes rotateShake {
+        0%, 100% { transform: rotate(0deg); }
+        25% { transform: rotate(-10deg); }
+        50% { transform: rotate(10deg); }
+        75% { transform: rotate(-10deg); }
+    }
