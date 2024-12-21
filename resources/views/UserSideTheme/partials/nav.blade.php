@@ -2,7 +2,7 @@
     <div class="container">
         <a class="navbar-brand" href="home">
             <img src="{{ asset('Userassets') }}/images/logo_icon.png" alt="icon">
-            <span>Dishlecious</span>
+            <span>Dishlicious</span>
         </a>
 
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav"

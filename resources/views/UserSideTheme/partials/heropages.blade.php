@@ -1,4 +1,4 @@
-<section class="hero-wrap hero-wrap-2" style="background-image: url('{{ asset('Userassets') }}/images/bg_3.jpg');"
+<section class="hero-wrap hero-wrap-2" style="background-image: url('{{ asset('Userassets') }}/images/bg_4.jpeg');"
 data-stellar-background-ratio="0.5">
 <div class="overlay"></div>
 <div class="container">
