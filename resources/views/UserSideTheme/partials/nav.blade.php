@@ -12,7 +12,7 @@
 
         <div class="collapse navbar-collapse" id="ftco-nav">
             <ul class="navbar-nav ml-auto">
-                <li class="nav-item  @yield('home-active') "><a href="home" class="nav-link">Home</a></li>
+                <li class="nav-item  @yield('userhome-active') "><a href="userhome" class="nav-link">Home</a></li>
                 <li class="nav-item  @yield('menu-active') "><a href="menu" class="nav-link">Menu</a></li>
                 <li class="nav-item  @yield('blog-active') "><a href="blog" class="nav-link">Blog</a></li>
                 <li class="nav-item  @yield('contact-active') "><a href="contact" class="nav-link">Contact</a></li>

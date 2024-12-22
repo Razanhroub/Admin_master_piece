@@ -8,6 +8,7 @@
 @section('menu-active', 'active')
 
 @section('content')
+@dd($categories)
     <section class="ftco-section">
         <div class="container-fluid px-4">
             <div class="row justify-content-center mb-5 pb-2">
