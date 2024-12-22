@@ -23,9 +23,5 @@ class UserSideController extends Controller{
         return view('UserSideTheme.pages.about');
         // nested view
     }
-    public function reservation(){
-        return view('UserSideTheme.pages.reservation');
-        // nested view
-    }
     
 }

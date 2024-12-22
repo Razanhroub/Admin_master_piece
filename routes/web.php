@@ -77,7 +77,6 @@ Route::controller(UserSideController::class)->group(function () {
     Route::get('/blog', 'blog');
     Route::get('/contact', 'contact');
     Route::get('/about', 'about');
-    Route::get('/reservation', 'reservation');
 
 
 });

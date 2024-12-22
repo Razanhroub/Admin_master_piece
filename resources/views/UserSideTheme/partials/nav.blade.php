@@ -17,7 +17,6 @@
                 <li class="nav-item  @yield('blog-active') "><a href="blog" class="nav-link">Blog</a></li>
                 <li class="nav-item  @yield('contact-active') "><a href="contact" class="nav-link">Contact</a></li>
                 <li class="nav-item  @yield('about-active') "><a href="about" class="nav-link">About us</a></li>
-                <li class="nav-item  @yield('reservation-active') "><a href="reservation" class="nav-link">Book a table</a></li>
 
             </ul>
         </div>
