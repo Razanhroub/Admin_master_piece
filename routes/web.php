@@ -78,6 +78,5 @@ Route::controller(UserSideController::class)->group(function () {
     Route::get('/about', 'about');
     Route::get('/p', 'p');
 });
-Route::get('/home', [UserSideController::class, 'userhome'])->name('home');
 
 require __DIR__.'/auth.php';

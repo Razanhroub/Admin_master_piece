@@ -1,9 +1,9 @@
-<nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
+<nav class="navbar navbar-expand-lg  ftco_navbar  ftco-navbar-light" id="ftco-navbar">
     <div class="container">
         <a class="navbar-brand" href="home">
             <img src="{{ asset('Userassets') }}/images/logo_icon.png" alt="icon">
-            <span>Dishlicious</span>
-        </a>
+            <span class="my-logo">Dishlicious</span>
+        </a> 
 
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav"
             aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">

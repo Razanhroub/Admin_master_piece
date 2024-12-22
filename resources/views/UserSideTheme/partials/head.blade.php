@@ -29,6 +29,8 @@
     <link rel="stylesheet" href="{{ asset('Userassets') }}/css/flaticon.css">
     <link rel="stylesheet" href="{{ asset('Userassets') }}/css/icomoon.css">
     <link rel="stylesheet" href="{{ asset('Userassets') }}/css/style.css">
+    <link rel="stylesheet" href="{{ asset('userprofile') }}/userprofile.css">
+
     <style>
   
       .navbar-brand {

@@ -27,5 +27,10 @@ class UserSideController extends Controller{
         return view('UserSideTheme.pages.about');
         // nested view
     }
+
+    public function p(){
+        return view('UserSideTheme.pages.p');
+        // nested view
+    }
     
 }
