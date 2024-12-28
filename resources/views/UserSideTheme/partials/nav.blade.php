@@ -10,9 +10,9 @@
             <span class="oi oi-menu"></span> Menu
         </button>
 
-        <div class="collapse navbar-collapse" id="ftco-nav">
+        <div  id="ftco-nav">
             <ul class="navbar-nav ml-auto navitemswhite">
-                <li class=" text-white navbar-brand @yield('home-active') "><a href="home" class="nav-link">Home</a></li>
+                <li class=" text-white navbar-brand @yield('userhome-active') "><a href="userhome" class="nav-link">Home</a></li>
                 <li class=" navbar-brand @yield('menu-active') "><a href="menu" class="nav-link">Menu</a></li>
                 <li class=" navbar-brand @yield('blog-active') "><a href="blog" class="nav-link">Blog</a></li>
                 <li class=" navbar-brand @yield('contact-active') "><a href="contact" class="nav-link">Contact</a></li>

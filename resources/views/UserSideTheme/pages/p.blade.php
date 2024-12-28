@@ -19,7 +19,7 @@
         <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
         <div class="container">
             <div class="row">
-                <div class="col-md-12">
+                <div class=" backgroundprofile col-md-12">
                     <div id="content" class="content content-full-width">
                         <!-- begin profile -->
                         <div class="profile">
@@ -47,16 +47,12 @@
                                 <ul class="profile-header-tab nav nav-tabs">
                                     <li class="nav-item"><a
                                             href="https://www.bootdey.com/snippets/view/bs4-profile-with-timeline-posts"
-                                            target="__blank" class="nav-link_">POSTS</a></li>
+                                            target="__blank" class="nav-link_">blogs</a></li>
                                     <li class="nav-item"><a href="https://www.bootdey.com/snippets/view/bs4-profile-about"
-                                            target="__blank" class="nav-link_">ABOUT</a></li>
-                                    <li class="nav-item"><a href="https://www.bootdey.com/snippets/view/profile-photos"
-                                            target="__blank" class="nav-link_">PHOTOS</a></li>
-                                    <li class="nav-item"><a href="https://www.bootdey.com/snippets/view/profile-videos"
-                                            target="__blank" class="nav-link_">VIDEOS</a></li>
+                                            target="__blank" class="nav-link_">edit profile</a></li>
                                     <li class="nav-item"><a
                                             href="https://www.bootdey.com/snippets/view/bs4-profile-friend-list"
-                                            target="__blank" class="nav-link_ active show">FRIENDS</a></li>
+                                            target="__blank" class="nav-link_ active show">followers</a></li>
                                 </ul>
                                 <!-- END profile-header-tab -->
                             </div>
@@ -90,7 +86,6 @@
                                                             alt=""></span>
                                                     <span class="username"><a href="javascript:;">Sean Ngu</a>
                                                         <small></small></span>
-                                                    <span class="pull-right text-muted">18 Views</span>
                                                 </div>
                                                 <div class="timeline-content">
                                                     <p>
@@ -101,7 +96,6 @@
                                                 </div>
                                                 <div class="timeline-likes">
                                                     <div class="stats-right">
-                                                        <span class="stats-text">259 Shares</span>
                                                         <span class="stats-text">21 Comments</span>
                                                     </div>
                                                     <div class="stats">
@@ -122,7 +116,7 @@
                                                     <a href="javascript:;" class="m-r-15 text-inverse-lighter"><i
                                                             class="fa fa-comments fa-fw fa-lg m-r-3"></i> Comment</a>
                                                     <a href="javascript:;" class="m-r-15 text-inverse-lighter"><i
-                                                            class="fa fa-share fa-fw fa-lg m-r-3"></i> Share</a>
+                                                            class="fa fa-bookmark fa-fw fa-lg m-r-3"></i> save</a>
                                                 </div>
                                                 <div class="timeline-comment-box">
                                                     <div class="user"><img
@@ -162,7 +156,6 @@
                                                             src="https://bootdey.com/img/Content/avatar/avatar3.png"
                                                             alt=""></span>
                                                     <span class="username">Sean Ngu</span>
-                                                    <span class="pull-right text-muted">82 Views</span>
                                                 </div>
                                                 <div class="timeline-content">
                                                     <p>Location: United States</p>
@@ -173,7 +166,7 @@
                                                     <a href="javascript:;" class="m-r-15 text-inverse-lighter"><i
                                                             class="fa fa-comments fa-fw fa-lg m-r-3"></i> Comment</a>
                                                     <a href="javascript:;" class="m-r-15 text-inverse-lighter"><i
-                                                            class="fa fa-share fa-fw fa-lg m-r-3"></i> Share</a>
+                                                            class="fa fa-bookmark fa-fw fa-lg m-r-3"></i> save</a>
                                                 </div>
                                             </div>
                                             <!-- end timeline-body -->
@@ -197,7 +190,6 @@
                                                             src="https://bootdey.com/img/Content/avatar/avatar3.png"
                                                             alt=""></span>
                                                     <span class="username">Sean Ngu</span>
-                                                    <span class="pull-right text-muted">1,282 Views</span>
                                                 </div>
                                                 <div class="timeline-content">
                                                     <p class="lead">
@@ -215,7 +207,7 @@
                                                     <a href="javascript:;" class="m-r-15 text-inverse-lighter"><i
                                                             class="fa fa-comments fa-fw fa-lg m-r-3"></i> Comment</a>
                                                     <a href="javascript:;" class="m-r-15 text-inverse-lighter"><i
-                                                            class="fa fa-share fa-fw fa-lg m-r-3"></i> Share</a>
+                                                            class="fa fa-bookmark fa-fw fa-lg m-r-3"></i> save</a>
                                                 </div>
                                             </div>
                                             <!-- end timeline-body -->
@@ -239,11 +231,9 @@
                                                             src="https://bootdey.com/img/Content/avatar/avatar3.png"
                                                             alt=""></span>
                                                     <span class="username">Sean Ngu</span>
-                                                    <span class="pull-right text-muted">1,021,282 Views</span>
                                                 </div>
                                                 <div class="timeline-content">
                                                     <h4 class="template-title">
-                                                        <i class="fa fa-map-marker text-danger fa-fw"></i>
                                                         795 Folsom Ave, Suite 600 San Francisco, CA 94107
                                                     </h4>
                                                     <p>In hac habitasse platea dictumst. Pellentesque bibendum id sem nec
@@ -259,7 +249,7 @@
                                                     <a href="javascript:;" class="m-r-15 text-inverse-lighter"><i
                                                             class="fa fa-comments fa-fw fa-lg m-r-3"></i> Comment</a>
                                                     <a href="javascript:;" class="m-r-15 text-inverse-lighter"><i
-                                                            class="fa fa-share fa-fw fa-lg m-r-3"></i> Share</a>
+                                                            class="fa fa-bookmark fa-fw fa-lg m-r-3"></i> save</a>
                                                 </div>
                                             </div>
                                             <!-- end timeline-body -->

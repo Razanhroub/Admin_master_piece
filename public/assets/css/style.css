@@ -455,7 +455,9 @@ mark,
 .img-fluid {
   max-width: 100%;
   height: auto; }
-
+.backgroundprofile{
+  background-color: #fff !important;
+}
 .img-thumbnail {
   padding: 0.25rem;
   background-color: #F3F3F9;
