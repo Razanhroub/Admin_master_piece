@@ -9,7 +9,7 @@
 
                 <div class="col-md-12 col-sm-12 text-center ftco-animate">
                     <h1 class="mb-4 mt-5" style="word-spacing: 0.5rem;">Explore Flavors Worldwide!</h1>
-                    <p><a href="#" class="btn btn-primary p-3 px-xl-4 py-xl-3">Explore Global Recipes</a></p>
+                    <p><a href="/categories" class="btn btn-primary p-3 px-xl-4 py-xl-3">Explore Global Recipes</a></p>
                 </div>
 
             </div>

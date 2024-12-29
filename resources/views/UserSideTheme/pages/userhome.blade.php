@@ -7,10 +7,10 @@
 
     @include('UserSideTheme.pages.aboutussections.aboutdishlicious')
     @include('UserSideTheme.pages.aboutussections.percentage')
+    @include('UserSideTheme.pages.home.homecategories')
     @include('UserSideTheme.pages.aboutussections.values')
 
 
-    @include('UserSideTheme.pages.home.homecategories')
 
     @include('UserSideTheme.pages.aboutussections.testimonials')
     @include('UserSideTheme.pages.aboutussections.creator')

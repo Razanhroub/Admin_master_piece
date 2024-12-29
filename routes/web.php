@@ -66,6 +66,7 @@ Route::controller(UserSideController::class)->group(function () {
     Route::get('/contact', 'contact');
     Route::get('/about', 'about');
     Route::get('/p', 'p');
+    Route::get('/categories', 'categories');
     Route::get('/userlogin', 'userlogin')->name('user.userlogin');
     Route::get('/userregister', 'userregister')->name('user.userregister');
 

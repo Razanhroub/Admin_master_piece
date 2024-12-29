@@ -37,6 +37,12 @@ class UserSideController extends Controller{
         return view('UserSideTheme.pages.p');
         // nested view
     }
+    public function categories(){
+        $categories = Category::where('is_deleted', 0)->get();
+        // dd($categories);
+        return view('UserSideTheme.pages.categories', compact('categories'));
+        // nested view
+    }
     public function userlogin(){
         return view('UserSideTheme.user.userlogin');
         // nested view
