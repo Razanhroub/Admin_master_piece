@@ -4,6 +4,7 @@
 {{-- @foreach (session()->all() as $key => $value)
 <li><strong>{{ $key }}:</strong> {{ is_array($value) ? json_encode($value) : $value }}</li>
 @endforeach --}}
+
     @include('UserSideTheme.pages.aboutussections.aboutdishlicious')
     @include('UserSideTheme.pages.aboutussections.percentage')
     @include('UserSideTheme.pages.aboutussections.values')

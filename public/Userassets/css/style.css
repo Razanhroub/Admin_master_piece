@@ -11317,12 +11317,12 @@ h1, h2, h3, h4, h5,
 }
 
 .ftco-navbar-light .navbar-nav>.nav-item>.nav-link {
-  font-size: 14px;
+  font-size: 1.25rem;
   padding-top: .8rem;
   padding-bottom: .8rem;
   padding-left: 20px;
   padding-right: 20px;
-  font-weight: 400;
+  font-weight: 500;
   color: #fff;
   opacity: 1 !important;
 }

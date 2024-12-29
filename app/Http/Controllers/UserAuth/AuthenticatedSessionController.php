@@ -2,13 +2,14 @@
 
 namespace App\Http\Controllers\UserAuth;
 
-use App\Http\Controllers\Controller;
-use App\Http\Requests\Auth\LoginRequest;
-use App\Providers\RouteServiceProvider;
-use Illuminate\Http\RedirectResponse;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
+use App\Models\User;
 use Illuminate\View\View;
+use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Http\RedirectResponse;
+use App\Providers\RouteServiceProvider;
+use App\Http\Requests\Auth\LoginRequest;
 
 class AuthenticatedSessionController extends Controller
 {
@@ -25,11 +26,27 @@ class AuthenticatedSessionController extends Controller
      */
     public function store(LoginRequest $request)
     {
-        // dd($request->all());
+        // Authenticate the user
         $request->authenticate('user');
-
+    
+        // Regenerate the session
         $request->session()->regenerate();
-
+    
+        // Retrieve the user by email
+        $user = User::where('email', $request->email)->first();
+    
+        if ($user) {
+            // Store the username and user ID in the session
+            session(['username' => $user->name]);
+            session(['user_id' => $user->id]);
+    
+            // dd($user->name, $user->id);
+        } else {
+            // Handle the case where the user is not found
+            return redirect()->back()->withErrors(['email' => 'User not found.']);
+        }
+    
+        // Redirect to the user home page
         return redirect()->route('userhome');
     }
 
