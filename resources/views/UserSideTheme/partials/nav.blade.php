@@ -32,22 +32,17 @@
                         </div>
                     </li>
                 @else
-                    <li class="nav-item @yield('login-active')"><a href="{{ route('user.userlogin') }}" class="nav-link">Login</a></li>
+                    <li class="nav-item dropdown">
+                        <a href="#" class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <i class="fas fa-lock"></i> 
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" style="color: black !important " href="{{ route('user.userlogin') }}">Login</a>
+                            <a class="dropdown-item"  style="color: black !important " href="{{ route('user.userregister') }}">Register</a>
+                        </div>
+                    </li>
                 @endif
             </ul>
-            {{-- <ul class="navbar-nav ml-auto navitemswhite">
-                <li class=" text-white navbar-brand @yield('userhome-active') "><a href="userhome" class="nav-link">Home</a></li>
-                <li class=" navbar-brand @yield('menu-active') "><a href="menu" class="nav-link">Menu</a></li>
-                <li class=" navbar-brand @yield('blog-active') "><a href="blog" class="nav-link">Blog</a></li>
-                <li class=" navbar-brand @yield('contact-active') "><a href="contact" class="nav-link">Contact</a></li>
-                <li class=" navbar-brand @yield('about-active') "><a href="about" class="nav-link">About us</a></li>
-                <li class=" navbar-brand @yield('p-active') "><a href="p" class="nav-link">profile</a></li>
-                <form action="{{ route('user.userlogout') }}" method="POST">
-                    @csrf
-                    <button  type="submit">Logout</button>
-                </form>
-
-            </ul> --}}
         </div>
     </div>
 </nav>
