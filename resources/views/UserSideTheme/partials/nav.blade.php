@@ -18,6 +18,11 @@
                 <li class=" navbar-brand @yield('contact-active') "><a href="contact" class="nav-link">Contact</a></li>
                 <li class=" navbar-brand @yield('about-active') "><a href="about" class="nav-link">About us</a></li>
                 <li class=" navbar-brand @yield('p-active') "><a href="p" class="nav-link">profile</a></li>
+                {{-- <li class=" navbar-brand "><a href="p" class="nav-link">Logout</a></li> --}}
+                <form action="{{ route('user.userlogout') }}" method="POST">
+                    @csrf
+                    <button  type="submit">Logout</button>
+                </form>
 
             </ul>
         </div>

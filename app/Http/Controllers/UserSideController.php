@@ -15,6 +15,11 @@ class UserSideController extends Controller{
         $categories = Category::where('is_deleted', 0)->get();
         return view('UserSideTheme.pages.menu', compact('categories'));
     }
+    public function menu()
+    {
+        $categories = Category::where('is_deleted', 0)->get();
+        return view('UserSideTheme.pages.menu', compact('categories'));
+    }
     public function blog(){
         return view('UserSideTheme.pages.blog');
         // nested view
@@ -30,6 +35,14 @@ class UserSideController extends Controller{
 
     public function p(){
         return view('UserSideTheme.pages.p');
+        // nested view
+    }
+    public function userlogin(){
+        return view('UserSideTheme.user.userlogin');
+        // nested view
+    }
+    public function userregister(){
+        return view('UserSideTheme.user.userregister');
         // nested view
     }
     

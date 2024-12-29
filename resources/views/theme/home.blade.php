@@ -6,7 +6,9 @@
     <div class="container-fluid mt-3">
         <h1>Hello Admin!</h1>
     </div>
-
+    {{-- @foreach (session()->all() as $key => $value)
+    <li><strong>{{ $key }}:</strong> {{ is_array($value) ? json_encode($value) : $value }}</li>
+@endforeach --}}
     <div class="container-fluid mt-3">
         <div class="row">
             <div class="col-lg-3 col-sm-6">
