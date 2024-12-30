@@ -26,8 +26,11 @@ class AuthenticatedSessionController extends Controller
      */
     public function store(LoginRequest $request)
     {
+
+        // dd($request->all());
         // Authenticate the user
         $request->authenticate('user');
+        
     
         // Regenerate the session
         $request->session()->regenerate();
@@ -45,7 +48,7 @@ class AuthenticatedSessionController extends Controller
             // Handle the case where the user is not found
             return redirect()->back()->withErrors(['email' => 'User not found.']);
         }
-    
+        
         // Redirect to the user home page
         return redirect()->route('userhome');
     }

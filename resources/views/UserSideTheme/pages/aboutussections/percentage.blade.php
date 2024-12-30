@@ -6,7 +6,7 @@
 </style>
 
 <section class="ftco-section ftco-counter img" id="section-counter"
-    style="background-image: url({{ asset('Userassets') }}/images/bg_4.jpeg);" data-stellar-background-ratio="0.5">
+    style="background-image: url({{ asset('Userassets') }}/images/bg_4.jpeg); " data-stellar-background-ratio="0.5">
     <div class="container">
         <div class="row d-md-flex align-items-center justify-content-center">
             <div class="col-lg-10">
