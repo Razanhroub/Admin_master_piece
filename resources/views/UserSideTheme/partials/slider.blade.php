@@ -25,7 +25,7 @@
 
                 <div class="col-md-12 col-sm-12 text-center ftco-animate">
                     <h1 class="mb-4 mt-5 " style="word-spacing: 0.5rem;">Recipes from Your Pantry!</h1>
-                    <p><a href="#" class="btn btn-primary p-3 px-xl-4 py-xl-3">Search Recipes</a></p>
+                    <p><a href="/menu" class="btn btn-primary p-3 px-xl-4 py-xl-3">Search Recipes</a></p>
                 </div>
 
             </div>

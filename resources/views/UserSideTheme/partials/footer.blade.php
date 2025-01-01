@@ -1,85 +1,149 @@
-<footer class="ftco-footer ftco-bg-dark ftco-section">
+<footer class="ftco-footer ftco-section">
     <div class="container-fluid px-md-5 px-3">
         <div class="row mb-5">
-            <div class="col-md-6 col-lg-3">
+            <!-- Dishlicious Section -->
+            <div class="col-md-4">
                 <div class="ftco-footer-widget mb-4">
-                    <h2 class="ftco-heading-2">Appetizer</h2>
-                    <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia,
-                        there live the blind texts.</p>
-                    <ul class="ftco-footer-social list-unstyled float-md-left float-lft mt-3">
-                        <li class="ftco-animate"><a href="#"><span class="icon-twitter"></span></a></li>
-                        <li class="ftco-animate"><a href="#"><span class="icon-facebook"></span></a></li>
-                        <li class="ftco-animate"><a href="#"><span class="icon-instagram"></span></a></li>
-                    </ul>
+                    <h5 class="ftco-heading-custome">Dishlicious</h5>
+                    <div class="line"></div>
+                    <p>
+                        In a land of culinary wonders, beyond the hills of flavor and the valleys of taste, lies a realm
+                        where recipes come to life. Journey with us through the enchanted kitchens of Dishlicious, where
+                        every dish tells a story and every ingredient has a secret to share.
+                    </p>
                 </div>
             </div>
-            <div class="col-md-6 col-lg-3">
+
+            <!-- Quick Links Section -->
+            <div class="col-md-4">
                 <div class="ftco-footer-widget mb-4">
-                    <h2 class="ftco-heading-2">Open Hours</h2>
-                    <ul class="list-unstyled open-hours">
-                        <li class="d-flex"><span>Monday</span><span>9:00 - 24:00</span></li>
-                        <li class="d-flex"><span>Tuesday</span><span>9:00 - 24:00</span></li>
-                        <li class="d-flex"><span>Wednesday</span><span>9:00 - 24:00</span></li>
-                        <li class="d-flex"><span>Thursday</span><span>9:00 - 24:00</span></li>
-                        <li class="d-flex"><span>Friday</span><span>9:00 - 02:00</span></li>
-                        <li class="d-flex"><span>Saturday</span><span>9:00 - 02:00</span></li>
-                        <li class="d-flex"><span>Sunday</span><span> 9:00 - 02:00</span></li>
-                    </ul>
-                </div>
-            </div>
-            <div class="col-md-6 col-lg-3">
-                <div class="ftco-footer-widget mb-4">
-                    <h2 class="ftco-heading-2">Newsletter</h2>
-                    <p>Far far away, behind the word mountains, far from the countries.</p>
-                    <form action="#" class="subscribe-form">
-                        <div class="form-group">
-                            <input type="text" class="form-control mb-2 text-center"
-                                placeholder="Enter email address">
-                            <input type="submit" value="Subscribe" class="form-control submit px-3">
+                    <h5 class="ftco-heading-custome">Quick Links</h5>
+                    <div class="line"></div>
+                    <div class="row">
+                        <div class="col-6">
+                            <ul class="list-unstyled">
+                                <li><a href="{{ url('/userhome') }}">Home</a></li>
+                                <li><a href="{{ url('/menu') }}">Recipes</a></li>
+                                <li><a href="{{ url('/categories') }}">Categories</a></li>
+                                <li><a href="{{ url('/blog') }}">Blog</a></li>
+                            </ul>
                         </div>
-                    </form>
+                        <div class="col-6">
+                            <ul class="list-unstyled">
+                                <li><a href="{{ url('/contact') }}">Contact</a></li>
+                                <li><a href="{{ url('/about') }}">About Us</a></li>
+                                <li><a href="{{ url('/profile') }}">Profile</a></li>
+                            </ul>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <div class="col-md-6 col-lg-3">
+
+            <!-- Contact Section -->
+            <div class="col-md-4">
                 <div class="ftco-footer-widget mb-4">
-                    <h2 class="ftco-heading-2">Instagram</h2>
-                    <div class="thumb d-sm-flex">
-                        <a href="#" class="thumb-menu img"
-                            style="background-image: url({{ asset('Userassets') }}/images/insta-1.jpg);">
-                        </a>
-                        <a href="#" class="thumb-menu img"
-                            style="background-image: url({{ asset('Userassets') }}/images/insta-2.jpg);">
-                        </a>
-                        <a href="#" class="thumb-menu img"
-                            style="background-image: url({{ asset('Userassets') }}/images/insta-3.jpg);">
-                        </a>
-                    </div>
-                    <div class="thumb d-flex">
-                        <a href="#" class="thumb-menu img"
-                            style="background-image: url({{ asset('Userassets') }}/images/insta-4.jpg);">
-                        </a>
-                        <a href="#" class="thumb-menu img"
-                            style="background-image: url({{ asset('Userassets') }}/images/insta-5.jpg);">
-                        </a>
-                        <a href="#" class="thumb-menu img"
-                            style="background-image: url({{ asset('Userassets') }}/images/insta-6.jpg);">
-                        </a>
-                    </div>
+                    <h5 class="ftco-heading-custome">Contact Us</h5>
+                    <div class="line"></div>
+                    <ul class="list-unstyled">
+                        <li>
+                            <span class="icon-phone"></span> +9628855120
+                        </li>
+                        <li>
+                            <a href="mailto:razan.b.alhroub@gmail.com">
+                                <span class="icon-envelope"></span> razan.b.alhroub@gmail.com
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://www.linkedin.com/in/razan-alhroub-67857a2a7/">
+                                <span class="icon-linkedin"></span> LinkedIn
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://github.com/Razanhroub">
+                                <span class="icon-github"></span> GitHub
+                            </a>
+                        </li>
+                    </ul>
                 </div>
             </div>
         </div>
+
+        <!-- Footer Bottom Row -->
         <div class="row">
             <div class="col-md-12 text-center">
-
-                <p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                <p>
                     Copyright &copy;
                     <script>
                         document.write(new Date().getFullYear());
-                    </script> All rights reserved | This template is made with <i class="icon-heart"
-                        aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
-                    <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                    </script> All rights reserved for Dishlicious. <i class="icon-heart" aria-hidden="true"></i>
                 </p>
             </div>
         </div>
     </div>
 </footer>
+
+<style>
+    .ftco-footer {
+        background: #111; /* Original footer background color */
+        color: #fff;
+        padding: 4rem 0;
+        font-family: Arial, sans-serif;
+    }
+
+    .ftco-footer h5 {
+        font-size: 1.625rem; /* Increased text size */
+        margin-bottom: 0.5rem;
+        color: #fff; /* White color for headings */
+    }
+
+    .ftco-footer .line {
+        height: 0.1875rem;
+        width: 3.125rem;
+        background-color: #ff5733;
+        margin-bottom: 1rem;
+    }
+
+    .ftco-footer p,
+    .ftco-footer ul {
+        color: #ccc;
+        font-size: 1.125rem; /* Increased text size */
+    }
+
+    .ftco-footer ul {
+        list-style: none;
+        padding: 0;
+    }
+
+    .ftco-footer ul li {
+        margin-bottom: 0.75rem; /* Increased margin */
+    }
+
+    .ftco-footer ul li a {
+        color: #fff;
+        text-decoration: none;
+        transition: color 0.3s;
+        font-size: 1.125rem; /* Increased text size */
+    }
+
+    .ftco-footer ul li a:hover {
+        color: #ff5733;
+    }
+
+    .ftco-footer .icon-phone,
+    .ftco-footer .icon-envelope,
+    .ftco-footer .icon-linkedin,
+    .ftco-footer .icon-github {
+        margin-right: 0.625rem;
+        font-size: 1.25rem; /* Increased icon size */
+    }
+
+    .ftco-footer .text-center p {
+        margin: 0;
+        color: #ccc;
+        font-size: 1.125rem; /* Increased text size */
+    }
+
+    .ftco-heading-custome {
+        color: white;
+    }
+</style>
