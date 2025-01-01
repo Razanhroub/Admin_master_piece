@@ -131,7 +131,7 @@
         <div class="welcome-section">
             <h1 class="text-4xl font-bold mb-4">Welcome</h1>
             <p class="text-center max-w-xs">
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                In a land of culinary wonders, beyond the hills of flavor and the valleys of taste, lies a realm where recipes come to life. Journey with us through the enchanted kitchens of Dishlicious, where every dish tells a story and every ingredient has a secret to share.
             </p>
         </div>
     </div>
