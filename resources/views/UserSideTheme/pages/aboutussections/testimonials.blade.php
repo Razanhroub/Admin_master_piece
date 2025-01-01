@@ -1,5 +1,5 @@
 <section class="ftco-section testimony-section img"
-style="background-image: url({{ asset('Userassets') }}/images/bg_5.jpg);">
+style="background-image: url({{ asset('Userassets') }}/images/bg_4.jpg);">
 <div class="overlay"></div>
 <div class="container">
     <div class="row justify-content-center mb-5">

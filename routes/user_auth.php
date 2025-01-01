@@ -1,15 +1,16 @@
 <?php
 
-use App\Http\Controllers\UserAuth\AuthenticatedSessionController;
-use App\Http\Controllers\UserAuth\ConfirmablePasswordController;
-use App\Http\Controllers\UserAuth\EmailVerificationNotificationController;
-use App\Http\Controllers\UserAuth\EmailVerificationPromptController;
-use App\Http\Controllers\UserAuth\NewPasswordController;
-use App\Http\Controllers\UserAuth\PasswordController;
-use App\Http\Controllers\UserAuth\PasswordResetLinkController;
-use App\Http\Controllers\UserAuth\RegisteredUserController;
-use App\Http\Controllers\UserAuth\VerifyEmailController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\FilterationController;
+use App\Http\Controllers\UserAuth\PasswordController;
+use App\Http\Controllers\UserAuth\NewPasswordController;
+use App\Http\Controllers\UserAuth\VerifyEmailController;
+use App\Http\Controllers\UserAuth\RegisteredUserController;
+use App\Http\Controllers\UserAuth\PasswordResetLinkController;
+use App\Http\Controllers\UserAuth\ConfirmablePasswordController;
+use App\Http\Controllers\UserAuth\AuthenticatedSessionController;
+use App\Http\Controllers\UserAuth\EmailVerificationPromptController;
+use App\Http\Controllers\UserAuth\EmailVerificationNotificationController;
 
 Route::middleware('guest:user')->group(function () {
     Route::get('user.userregister', [RegisteredUserController::class, 'create']);
@@ -33,6 +34,7 @@ Route::middleware('guest:user')->group(function () {
 
     Route::post('reset-password', [NewPasswordController::class, 'store'])
         ->name('password.store');
+        Route::get('/menu', [FilterationController::class, 'showRecipesByCategory']);
 });
 
 

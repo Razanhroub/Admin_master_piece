@@ -26,11 +26,11 @@ class Recipe extends Model
 
     public function subcategory()
     {
-        return $this->belongsTo(Subcategory::class);
+        return $this->belongsTo(Subcategory::class, 'sub_category_id', 'subcategory_id');
     }
 
     public function ingredients()
     {
-        return $this->belongsToMany(Ingredient::class, 'recipeingredients');
+        return $this->hasMany(Ingredient::class, 'recipe_id', 'recipe_id');
     }
 }

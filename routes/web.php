@@ -1,16 +1,17 @@
 <?php
 
+use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ThemeController;
+use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\UserSideController;
+use App\Http\Controllers\FilterationController;
 use App\Http\Controllers\Tables\BlogController;
 use App\Http\Controllers\Tables\UserController;
-use App\Http\Controllers\ThemeController;
 use App\Http\Controllers\Tables\RecipeController;
 use App\Http\Controllers\Tables\CommentController;
-use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\Tables\CategoryController;
 use App\Http\Controllers\Tables\IngredientController;
 use App\Http\Controllers\Tables\SubcategoryController;
-use App\Http\Controllers\UserSideController;
-use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
@@ -61,7 +62,7 @@ Route::middleware(['auth', 'verified', 'admin'])->group(function () {
 
 Route::controller(UserSideController::class)->group(function () {
     // Route::get('/userhome', 'userhome');
-    Route::get('/menu', 'menu');
+    // Route::get('/menu', 'menu');
     Route::get('/blog', 'blog');
     Route::get('/contact', 'contact');
     Route::get('/about', 'about');
@@ -71,6 +72,8 @@ Route::controller(UserSideController::class)->group(function () {
     Route::get('/userregister', 'userregister')->name('user.userregister');
 
 });
-
+Route::get('/menu', [FilterationController::class, 'showRecipesByCategory']);
+Route::get('/filter-recipes', [FilterationController::class, 'filterRecipesBySubcategory'])->name('recipes.filter');
+Route::get('/get-subcategories', [FilterationController::class, 'getSubcategories'])->name('subcategories.get');
 require __DIR__ . '/auth.php';  
 require __DIR__ . '/user.php';  

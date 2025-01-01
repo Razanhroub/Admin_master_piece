@@ -13,12 +13,12 @@ class UserSideController extends Controller{
     public function homecategories()
     {
         $categories = Category::where('is_deleted', 0)->get();
-        return view('UserSideTheme.pages.menu', compact('categories'));
+        return view('UserSideTheme.pages.home.homecategories', compact('categories'));
     }
     public function menu()
     {
         $categories = Category::where('is_deleted', 0)->get();
-        return view('UserSideTheme.pages.menu', compact('categories'));
+        return view('UserSideTheme.pages.menu');
     }
     public function blog(){
         return view('UserSideTheme.pages.blog');

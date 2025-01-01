@@ -1,14 +1,110 @@
 @extends('UserSideTheme.masters.master')
+
 @section('herotitle')
     menu
 @endsection
+
 @section('breadcrumbs')
     menu
 @endsection
+
 @section('menu-active', 'active')
 
 @section('content')
-{{-- @dd($categories) --}}
+<div class="container">
+    <h1>Recipes</h1>
+
+    <!-- Dropdown for Categories -->
+    <select id="categoryDropdown">
+        @foreach($categories as $category)
+            <option value="{{ $category->category_id }}" {{ $category->category_id == $categoryId ? 'selected' : '' }}>
+                {{ $category->category_name }}
+            </option>
+        @endforeach
+    </select>
+
+    <!-- Dropdown for Subcategories -->
+    <select id="subcategoryDropdown">
+        <option value="">All Subcategories</option>
+        @foreach($subcategories as $subcategory)
+            <option value="{{ $subcategory->subcategory_id }}">{{ $subcategory->sub_category_name }}</option>
+        @endforeach
+    </select>
+
+    <!-- Recipes List -->
+    <div id="recipesList">
+        @foreach($recipes as $recipe)
+            <div class="recipe">
+                <h2>{{ $recipe->recipe_name }}</h2>
+                <p>{{ $recipe->instructions }}</p>
+            </div>
+        @endforeach
+    </div>
+</div>
+
+<script>
+    document.getElementById('categoryDropdown').addEventListener('change', function() {
+        var categoryId = this.value;
+
+        fetch(`/get-subcategories?category=${categoryId}`)
+            .then(response => response.json())
+            .then(data => {
+                var subcategoryDropdown = document.getElementById('subcategoryDropdown');
+                subcategoryDropdown.innerHTML = '<option value="">All Subcategories</option>';
+                data.subcategories.forEach(subcategory => {
+                    var option = document.createElement('option');
+                    option.value = subcategory.subcategory_id;
+                    option.textContent = subcategory.sub_category_name;
+                    subcategoryDropdown.appendChild(option);
+                });
+
+                // Fetch recipes for the selected category
+                fetch(`/filter-recipes?category=${categoryId}`)
+                    .then(response => response.json())
+                    .then(data => {
+                        var recipesList = document.getElementById('recipesList');
+                        recipesList.innerHTML = '';
+                        data.recipes.forEach(recipe => {
+                            var recipeDiv = document.createElement('div');
+                            recipeDiv.classList.add('recipe');
+                            recipeDiv.innerHTML = `<h2>${recipe.recipe_name}</h2><p>${recipe.instructions}</p>`;
+                            recipesList.appendChild(recipeDiv);
+                        });
+
+                        // Update the URL without reloading the page
+                        const newUrl = `/menu?category=${categoryId}`;
+                        window.history.pushState({ path: newUrl }, '', newUrl);
+                    });
+            });
+    });
+
+    document.getElementById('subcategoryDropdown').addEventListener('change', function() {
+        var subcategoryId = this.value;
+        var categoryId = document.getElementById('categoryDropdown').value;
+
+        fetch(`/filter-recipes?subcategory=${subcategoryId}&category=${categoryId}`)
+            .then(response => response.json())
+            .then(data => {
+                var recipesList = document.getElementById('recipesList');
+                recipesList.innerHTML = '';
+                data.recipes.forEach(recipe => {
+                    var recipeDiv = document.createElement('div');
+                    recipeDiv.classList.add('recipe');
+                    recipeDiv.innerHTML = `<h2>${recipe.recipe_name}</h2><p>${recipe.instructions}</p>`;
+                    recipesList.appendChild(recipeDiv);
+                });
+
+                // Update the URL without reloading the page
+                const newUrl = `/menu?category=${categoryId}&subcategory=${subcategoryId}`;
+                window.history.pushState({ path: newUrl }, '', newUrl);
+            })
+            .catch(error => console.error('Error:', error));
+    });
+</script>
+@endsection
+
+{{-- @section('content')
+
     <section class="ftco-section">
         <div class="container-fluid px-4">
             <div class="row justify-content-center mb-5 pb-2">
@@ -397,4 +493,6 @@
             </div>
         </div>
     </section>
-@endsection
+@endsection --}}
+
+

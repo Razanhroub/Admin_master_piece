@@ -15,8 +15,8 @@ class Ingredient extends Model
     ];
 
     // Relationships
-    public function recipes()
+    public function recipe()
     {
-        return $this->belongsToMany(Recipe::class, 'recipeingredients');
+        return $this->belongsTo(Recipe::class, 'recipe_id', 'recipe_id');
     }
 }
