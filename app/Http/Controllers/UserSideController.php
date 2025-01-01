@@ -5,8 +5,9 @@ use App\Models\Category;
 class UserSideController extends Controller{
     public function userhome()
     {
-        $categories = Category::where('is_deleted', 0)->get();
-        // dd($categories);
+        $categories = Category::where('is_deleted', 0)
+        ->orderBy('category_name', 'asc') // Sort by category_name in ascending order
+        ->get();
         return view('UserSideTheme.pages.userhome', compact('categories'));
     }
 
@@ -17,7 +18,6 @@ class UserSideController extends Controller{
     }
     public function menu()
     {
-        $categories = Category::where('is_deleted', 0)->get();
         return view('UserSideTheme.pages.menu');
     }
     public function blog(){

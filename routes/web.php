@@ -62,7 +62,7 @@ Route::middleware(['auth', 'verified', 'admin'])->group(function () {
 
 Route::controller(UserSideController::class)->group(function () {
     // Route::get('/userhome', 'userhome');
-    // Route::get('/menu', 'menu');
+    Route::get('/menu', 'menu');
     Route::get('/blog', 'blog');
     Route::get('/contact', 'contact');
     Route::get('/about', 'about');
