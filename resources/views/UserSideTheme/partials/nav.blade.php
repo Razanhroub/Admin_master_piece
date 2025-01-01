@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-lg  ftco_navbar  ftco-navbar-light" id="ftco-navbar">
     <div class="container">
-        <a class="navbar-brand" href="home">
+        <a class="navbar-brand" href="userhome">
             <img src="{{ asset('Userassets') }}/images/logo_icon.png" alt="icon">
             <span class="my-logo">Dishlicious</span>
         </a>
@@ -13,7 +13,7 @@
         <div id="ftco-nav">
             <ul class="navbar-nav ml-auto navitemswhite">
                 <li class="nav-item @yield('userhome-active')"><a href="userhome" class="nav-link">Home</a></li>
-                <li class="nav-item @yield('menu-active')"><a href="menu" class="nav-link">Menu</a></li>
+                <li class="nav-item @yield('menu-active')"><a href="menu" class="nav-link">Recipes</a></li>
                 <li class="nav-item @yield('categories-active')"><a href="categories" class="nav-link">Categories</a></li>
                 <li class="nav-item @yield('blog-active')"><a href="blog" class="nav-link">Blog</a></li>
                 <li class="nav-item @yield('contact-active')"><a href="contact" class="nav-link">Contact</a></li>

@@ -1,11 +1,11 @@
 @extends('UserSideTheme.masters.master')
 
 @section('herotitle')
-    menu
+    Recipes
 @endsection
 
 @section('breadcrumbs')
-    menu
+    Recipes
 @endsection
 
 @section('menu-active', 'active')
@@ -23,7 +23,7 @@
                 <div class="row">
                     <!-- Dropdown for Categories -->
                     <div class="col-md-3 mb-3">
-                        <select id="categoryDropdown" class="form-select">
+                        <select style="text-align: center" id="categoryDropdown" class="form-select dropend custom-dropdown">
                             <option value="">All Categories</option>
                             @foreach ($categories as $category)
                                 <option value="{{ $category->category_id }}"
@@ -36,7 +36,7 @@
 
                     <!-- Dropdown for Subcategories -->
                     <div class="col-md-3 mb-3" id="subcategoryDropdownContainer">
-                        <select id="subcategoryDropdown" class="form-select">
+                        <select style="text-align: center" id="subcategoryDropdown" class="form-select dropend custom-dropdown">
                             <option value="">All Subcategories</option>
                             @foreach ($subcategories as $subcategory)
                                 <option value="{{ $subcategory->subcategory_id }}">{{ $subcategory->sub_category_name }}
@@ -47,13 +47,15 @@
 
                     <!-- Search Field -->
                     <div class="col-md-3 mb-3">
-                        <input type="text" id="searchInput" class="form-control" placeholder="Search recipes...">
+                        <input type="text" id="searchInput" class="form-control custom-input" placeholder="Search recipes...">
                     </div>
 
-                    <!-- Ingredient Search Field -->
+                    <!-- Ingredient Search Field with Button -->
                     <div class="col-md-3 mb-3">
-                        <input type="text" id="ingredientInput" class="form-control" placeholder="Add ingredient...">
-                        <button id="addIngredientButton" class="btn btn-primary mt-2">Add Ingredient</button>
+                        <div class="input-group">
+                            <input type="text" id="ingredientInput" class="form-control custom-input" placeholder="Add ingredient...">
+                            <button id="addIngredientButton" class="btn btn-primary">Add</button>
+                        </div>
                     </div>
                 </div>
 
@@ -61,7 +63,7 @@
                 <div class="row mb-3">
                     <div class="col-md-12 d-flex align-items-center" id="ingredientListContainer">
                         <div id="ingredientList" class="flex-grow-1"></div>
-                        <button id="resetIngredientsButton" class="btn btn-danger ms-3" style="display: none;">Reset Ingredients</button>
+                        <button id="resetIngredientsButton" class="badge bg-primary me-2 mb-2 x-button" style="display: none;">x</button>
                     </div>
                 </div>
 
@@ -202,18 +204,25 @@
                 var recipeDiv = document.createElement('div');
                 recipeDiv.classList.add('col-md-4', 'mb-4');
                 var imageUrl = `{{ asset('Userassets/images/recipes/') }}/${recipe.recipe_img}`;
-                recipeDiv.innerHTML = `
-                    <div class="custom-card">
+                recipeDiv.innerHTML = 
+                    `<div class="custom-card horizontal-card">
                         <div class="custom-card-img-wrapper">
                             <img src="${imageUrl}" class="custom-menu-img" alt="${recipe.recipe_name}">
                         </div>
                         <div class="custom-card-body">
+                            <div class="role-text">${recipe.role}</div>
                             <h5 class="custom-card-title">${recipe.recipe_name}</h5>
-                            <p class="custom-card-text"><small class="text-muted">Role: ${recipe.role}</small></p>
-                            <p class="custom-card-text"><small class="text-muted">Calories: ${recipe.calories}</small></p>
-                            <p class="custom-card-text"><small class="text-muted">Serves: ${recipe.ppl_number}</small></p>
-                            <p class="custom-card-text"><small class="text-muted">Oven Heat: ${recipe.oven_heat}</small></p>
-                            <p class="custom-card-text"><small class="text-muted">Time: ${recipe.recipe_time}</small></p>
+                            <div class="custom-card-details">
+                                <p class="custom-card-text"><i class="fas fa-user"></i> ${recipe.ppl_number}</p>
+                                <p class="custom-card-text"><i class="fas fa-thermometer-half"></i> ${recipe.oven_heat}</p>
+                                <p class="custom-card-text"><i class="fas fa-clock"></i> ${recipe.recipe_time}</p>
+                                <p class="custom-card-text"><i class="fas fa-fire"></i> ${recipe.calories} per person</p>
+                            </div>
+                            <div class="custom-card-actions">
+                                <button class="btn btn-primary">Recipe Details</button>
+                                <button class="btn btn-outline-secondary"><i class="fas fa-heart"></i></button>
+                                <button class="btn btn-outline-secondary"><i class="fas fa-bookmark"></i></button>
+                            </div>
                         </div>
                     </div>`;
                 recipesList.appendChild(recipeDiv);
@@ -246,29 +255,29 @@
     </script>
     <style>
         .custom-card {
+            display: flex;
+            flex-direction: row;
             border: 1px solid #ddd;
             border-radius: 5px;
             overflow: hidden;
             transition: background-color 0.3s ease;
             width: 100%;
-            max-width: 300px;
-            height: 400px;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
+            max-width: 100%;
+            height: 220px; /* Increased height */
+            margin-bottom: 20px;
         }
 
         .custom-card:hover {
-            background-color: #FF5733
+            background-color: #FF5733;
         }
 
         .custom-card-img-wrapper {
-            position: relative;
-            width: 100px;
-            height: 100px;
+            width: 150px;
+            height: 150px; /* Adjusted height */
             overflow: hidden;
-            border-radius: 50%;
-            margin: 10px auto;
+            position: relative;
+            border-radius: 50%; /* Make the image circular */
+            margin: 10px;
         }
 
         .custom-menu-img {
@@ -277,24 +286,45 @@
             object-fit: cover;
         }
 
+        .role-text {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            padding: 5px 10px;
+            border-radius: 5px;
+        }
+
         .custom-card-body {
             padding: 15px;
-            flex-grow: 1;
             display: flex;
             flex-direction: column;
-            justify-content: center;
+            justify-content: space-between;
+            width: 100%;
         }
 
         .custom-card-title {
             font-size: 1.25rem;
             margin-bottom: 10px;
-            text-align: center;
+        }
+
+        .custom-card-details {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
         }
 
         .custom-card-text {
             font-size: 0.875rem;
             margin-bottom: 5px;
-            text-align: center;
+        }
+
+        .custom-card-actions {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 10px;
         }
 
         .badge {
@@ -325,6 +355,21 @@
 
         .btn-close-white {
             filter: invert(1);
+        }
+
+        .dropend .dropdown-menu {
+            top: 100%;
+            left: 0;
+            margin-top: 0.125rem;
+        }
+
+        .custom-dropdown, .custom-input {
+            height: 100%; /* Adjust the height as needed */
+            width: 100%; /* Ensure full width */
+            border: 1px solid black;
+        }
+        .x-button{
+            border: 0;
         }
     </style>
 @endsection
