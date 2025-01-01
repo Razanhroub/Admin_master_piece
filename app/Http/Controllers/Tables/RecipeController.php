@@ -1,9 +1,10 @@
 <?php
 namespace App\Http\Controllers\Tables;
 
-use App\Http\Controllers\Controller; 
-use Illuminate\Http\Request;
 use App\Models\Recipe;
+use App\Models\Ingredient;
+use Illuminate\Http\Request;
+use App\Http\Controllers\Controller; 
 
 class RecipeController extends Controller
 {
@@ -14,7 +15,20 @@ class RecipeController extends Controller
     {
         return view('theme.recipes-table');
     }
-
+    public function showRecipeDetails($id) {
+        // Fetch the recipe details
+        $recipe = Recipe::where('recipe_id', $id)
+            ->where('is_deleted', 0)
+            ->first();
+    
+        // Fetch the ingredients for the recipe
+        $ingredients = Ingredient::where('recipe_id', $id)
+            ->where('is_deleted', 0)
+            ->select('ingredient_name')
+            ->get();
+        // dd($ingredients , $recipe);
+        return view('UserSideTheme.pages.recipedetails', compact('recipe', 'ingredients'));
+    }
     /**
      * Show the form for creating a new resource.
      */
@@ -34,10 +48,7 @@ class RecipeController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Recipe $recipe)
-    {
-        //
-    }
+    
 
     /**
      * Show the form for editing the specified resource.

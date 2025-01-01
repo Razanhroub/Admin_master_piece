@@ -36,7 +36,8 @@
 
                     <!-- Dropdown for Subcategories -->
                     <div class="col-md-3 mb-3" id="subcategoryDropdownContainer">
-                        <select style="text-align: center" id="subcategoryDropdown" class="form-select dropend custom-dropdown">
+                        <select style="text-align: center" id="subcategoryDropdown"
+                            class="form-select dropend custom-dropdown">
                             <option value="">All Subcategories</option>
                             @foreach ($subcategories as $subcategory)
                                 <option value="{{ $subcategory->subcategory_id }}">{{ $subcategory->sub_category_name }}
@@ -47,13 +48,15 @@
 
                     <!-- Search Field -->
                     <div class="col-md-3 mb-3">
-                        <input type="text" id="searchInput" class="form-control custom-input" placeholder="Search recipes...">
+                        <input type="text" id="searchInput" class="form-control custom-input"
+                            placeholder="Search recipes...">
                     </div>
 
                     <!-- Ingredient Search Field with Button -->
                     <div class="col-md-3 mb-3">
                         <div class="input-group">
-                            <input type="text" id="ingredientInput" class="form-control custom-input" placeholder="Add ingredient...">
+                            <input type="text" id="ingredientInput" class="form-control custom-input"
+                                placeholder="Add ingredient...">
                             <button id="addIngredientButton" class="btn btn-primary">Add</button>
                         </div>
                     </div>
@@ -63,7 +66,8 @@
                 <div class="row mb-3">
                     <div class="col-md-12 d-flex align-items-center" id="ingredientListContainer">
                         <div id="ingredientList" class="flex-grow-1"></div>
-                        <button id="resetIngredientsButton" class="badge bg-primary me-2 mb-2 x-button" style="display: none;">x</button>
+                        <button id="resetIngredientsButton" class="badge bg-primary me-2 mb-2 x-button"
+                            style="display: none;">x</button>
                     </div>
                 </div>
 
@@ -91,7 +95,8 @@
             var searchTerm = document.getElementById('searchInput').value;
             var ingredientSearchTerm = ingredients.join(',');
 
-            fetch(`/filter-recipes?category=${categoryId}&subcategory=${subcategoryId}&search=${searchTerm}&ingredient=${ingredientSearchTerm}`)
+            fetch(
+                    `/filter-recipes?category=${categoryId}&subcategory=${subcategoryId}&search=${searchTerm}&ingredient=${ingredientSearchTerm}`)
                 .then(response => response.json())
                 .then(data => {
                     allRecipes = data.recipes;
@@ -204,27 +209,28 @@
                 var recipeDiv = document.createElement('div');
                 recipeDiv.classList.add('col-md-4', 'mb-4');
                 var imageUrl = `{{ asset('Userassets/images/recipes/') }}/${recipe.recipe_img}`;
-                recipeDiv.innerHTML = 
+                recipeDiv.innerHTML =
                     `<div class="custom-card horizontal-card">
-                        <div class="custom-card-img-wrapper">
-                            <img src="${imageUrl}" class="custom-menu-img" alt="${recipe.recipe_name}">
-                        </div>
-                        <div class="custom-card-body">
-                            <div class="role-text">${recipe.role}</div>
-                            <h5 class="custom-card-title">${recipe.recipe_name}</h5>
-                            <div class="custom-card-details">
-                                <p class="custom-card-text"><i class="fas fa-user"></i> ${recipe.ppl_number}</p>
-                                <p class="custom-card-text"><i class="fas fa-thermometer-half"></i> ${recipe.oven_heat}</p>
-                                <p class="custom-card-text"><i class="fas fa-clock"></i> ${recipe.recipe_time}</p>
-                                <p class="custom-card-text"><i class="fas fa-fire"></i> ${recipe.calories} per person</p>
-                            </div>
-                            <div class="custom-card-actions">
-                                <button class="btn btn-primary">Recipe Details</button>
-                                <button class="btn btn-outline-secondary"><i class="fas fa-heart"></i></button>
-                                <button class="btn btn-outline-secondary"><i class="fas fa-bookmark"></i></button>
-                            </div>
-                        </div>
-                    </div>`;
+                <div class="custom-card-img-wrapper">
+                    <img src="${imageUrl}" class="custom-menu-img" alt="${recipe.recipe_name}">
+                </div>
+                <div class="custom-card-body">
+                    <div class="role-text">${recipe.role}</div>
+                    <h5 class="custom-card-title">${recipe.recipe_name}</h5>
+                    <div class="custom-card-details">
+                        <p class="custom-card-text"><i class="fas fa-user"></i> ${recipe.ppl_number}</p>
+                        ${recipe.oven_heat ? `<p class="custom-card-text"><i class="fas fa-thermometer-half"></i> ${recipe.oven_heat}</p>` : ''}
+
+                        <p class="custom-card-text"><i class="fas fa-clock"></i> ${recipe.recipe_time}</p>
+                        <p class="custom-card-text"><i class="fas fa-fire"></i> ${recipe.calories} per person</p>
+                    </div>
+                    <div class="custom-card-actions">
+                        <a href="/recipedetails/${recipe.recipe_id}" class="btn btn-primary">Recipe Details</a>
+                        <button class="btn btn-outline-secondary"><i class="fas fa-heart"></i></button>
+                        <button class="btn btn-outline-secondary"><i class="fas fa-bookmark"></i></button>
+                    </div>
+                </div>
+            </div>`;
                 recipesList.appendChild(recipeDiv);
             });
         }
@@ -263,7 +269,8 @@
             transition: background-color 0.3s ease;
             width: 100%;
             max-width: 100%;
-            height: 220px; /* Increased height */
+            height: 220px;
+            /* Increased height */
             margin-bottom: 20px;
         }
 
@@ -273,10 +280,12 @@
 
         .custom-card-img-wrapper {
             width: 150px;
-            height: 150px; /* Adjusted height */
+            height: 150px;
+            /* Adjusted height */
             overflow: hidden;
             position: relative;
-            border-radius: 50%; /* Make the image circular */
+            border-radius: 50%;
+            /* Make the image circular */
             margin: 10px;
         }
 
@@ -363,12 +372,16 @@
             margin-top: 0.125rem;
         }
 
-        .custom-dropdown, .custom-input {
-            height: 100%; /* Adjust the height as needed */
-            width: 100%; /* Ensure full width */
+        .custom-dropdown,
+        .custom-input {
+            height: 100%;
+            /* Adjust the height as needed */
+            width: 100%;
+            /* Ensure full width */
             border: 1px solid black;
         }
-        .x-button{
+
+        .x-button {
             border: 0;
         }
     </style>

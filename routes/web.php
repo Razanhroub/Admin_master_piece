@@ -1,5 +1,7 @@
 <?php
 
+
+
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ThemeController;
 use App\Http\Controllers\ProfileController;
@@ -12,6 +14,9 @@ use App\Http\Controllers\Tables\CommentController;
 use App\Http\Controllers\Tables\CategoryController;
 use App\Http\Controllers\Tables\IngredientController;
 use App\Http\Controllers\Tables\SubcategoryController;
+
+
+
 
 Route::get('/', function () {
     return view('welcome');
@@ -72,6 +77,7 @@ Route::controller(UserSideController::class)->group(function () {
     Route::get('/userregister', 'userregister')->name('user.userregister');
 
 });
+Route::get('/recipedetails/{id}', [RecipeController::class, 'showRecipeDetails'])->name('recipedetails');
 Route::get('/menu', [FilterationController::class, 'showRecipesByCategory']);
 Route::get('/filter-recipes', [FilterationController::class, 'filterRecipesBySubcategory'])->name('recipes.filter');
 Route::get('/get-subcategories', [FilterationController::class, 'getSubcategories'])->name('subcategories.get');
