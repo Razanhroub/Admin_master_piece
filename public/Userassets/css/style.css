@@ -11316,6 +11316,29 @@ h1, h2, h3, h4, h5,
   }
 }
 
+.btn-custom-primary {
+  background: #ff5733;
+  border: 1px solid #ff5733;
+  color: #fff;
+}
+
+.btn.btn-custom-primary:hover {
+  border: 1px solid #ff5733;
+  background: transparent;
+  color: #ff5733;
+}
+
+.btn.btn-custom-primary.btn-outline-primary {
+  border: 1px solid #ff5733;
+  background: transparent;
+  color: #ff5733;
+}
+
+.btn.btn-custom-primary.btn-outline-primary:hover {
+  border: 1px solid transparent;
+  background: #ff5733;
+  color: #fff;
+}
 .ftco-navbar-light .navbar-nav>.nav-item>.nav-link {
   font-size: 1.15rem;
   padding-top: .8rem;
@@ -11325,6 +11348,11 @@ h1, h2, h3, h4, h5,
   font-weight: 300;
   color: #fff;
   opacity: 1 !important;
+}
+
+.btn-custom-primary:focus, .btn-custom-primary.focus {
+  -webkit-box-shadow: 0 0 0 0.2rem rgba(255, 88, 51, 0.5);
+  box-shadow: 0 0 0 0.2rem rgba(255, 88, 51, 0.5);
 }
 
 .ftco-navbar-light .navbar-nav>.nav-item>.nav-link:hover {

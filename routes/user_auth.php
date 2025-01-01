@@ -34,7 +34,6 @@ Route::middleware('guest:user')->group(function () {
 
     Route::post('reset-password', [NewPasswordController::class, 'store'])
         ->name('password.store');
-        Route::get('/menu', [FilterationController::class, 'showRecipesByCategory']);
 });
 
 

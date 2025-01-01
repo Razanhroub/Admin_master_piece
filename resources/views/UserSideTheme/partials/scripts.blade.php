@@ -12,5 +12,6 @@
 <script src="{{ asset('Userassets') }}/js/bootstrap-datepicker.js"></script>
 <script src="{{ asset('Userassets') }}/js/jquery.timepicker.min.js"></script>
 <script src="{{ asset('Userassets') }}/js/scrollax.min.js"></script>
-{{-- <script src="{{ asset('Userassets') }}/js/google-map.js"></script> --}}
 <script src="{{ asset('Userassets') }}/js/main.js"></script>
+<script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.1.1/dist/js/bootstrap.bundle.min.js"></script>

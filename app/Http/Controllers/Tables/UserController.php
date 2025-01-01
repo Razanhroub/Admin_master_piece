@@ -145,4 +145,31 @@ class UserController extends Controller
         // Redirect back with a success message
         return redirect()->route('user-table.index')->with('success', 'User deleted successfully!');
     }
+    public function updateProfile(Request $request){
+        $user_id = session('user_id');
+        $validatedData = $request->validate([
+            'name' =>'required|string|max:255',
+            'email' => 'required|email|max:255|unique:users,email,' . $user_id,
+            'pass' => [
+                'nullable',
+                'string',
+                'min:8',
+                'regex:/^(?=.*[A-Z])(?=.*\d)(?=.*[\W]).{8,}$/'
+                ]
+        ]);
+
+        $user = User::find($user_id);
+        if (!$user) {
+            session()->flash('error', 'Failed to update profile');
+            return redirect()->back();
+        }
+        if ( $user->updateProfile($validatedData) ) {
+
+            session()->flash('success', 'Profile updated successfully');
+            session(['username' => $validatedData['name']]);
+        } else {
+            session()->flash('error', 'Failed to update profile');
+        }
+        return redirect()->back();
+    }
 }

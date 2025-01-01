@@ -96,7 +96,8 @@
             var ingredientSearchTerm = ingredients.join(',');
 
             fetch(
-                    `/filter-recipes?category=${categoryId}&subcategory=${subcategoryId}&search=${searchTerm}&ingredient=${ingredientSearchTerm}`)
+                    `/filter-recipes?category=${categoryId}&subcategory=${subcategoryId}&search=${searchTerm}&ingredient=${ingredientSearchTerm}`
+                )
                 .then(response => response.json())
                 .then(data => {
                     allRecipes = data.recipes;
@@ -199,41 +200,45 @@
         });
 
         function displayRecipes() {
-            const recipesList = document.getElementById('recipesList');
-            recipesList.innerHTML = '';
-            const start = (currentPage - 1) * recipesPerPage;
-            const end = start + recipesPerPage;
-            const paginatedRecipes = allRecipes.slice(start, end);
+    const recipesList = document.getElementById('recipesList');
+    recipesList.innerHTML = '';
+    const start = (currentPage - 1) * recipesPerPage;
+    const end = start + recipesPerPage;
+    const paginatedRecipes = allRecipes.slice(start, end);
 
-            paginatedRecipes.forEach(recipe => {
-                var recipeDiv = document.createElement('div');
-                recipeDiv.classList.add('col-md-4', 'mb-4');
-                var imageUrl = `{{ asset('Userassets/images/recipes/') }}/${recipe.recipe_img}`;
-                recipeDiv.innerHTML =
-                    `<div class="custom-card horizontal-card">
+    paginatedRecipes.forEach(recipe => {
+        const recipeDiv = document.createElement('div');
+        recipeDiv.classList.add('col-md-4', 'mb-4');
+        const imageUrl = `{{ asset('Userassets/images/recipes/') }}/${recipe.recipe_img}`;
+        
+        recipeDiv.innerHTML = `
+            <div class="custom-card horizontal-card">
                 <div class="custom-card-img-wrapper">
                     <img src="${imageUrl}" class="custom-menu-img" alt="${recipe.recipe_name}">
                 </div>
                 <div class="custom-card-body">
                     <div class="role-text">${recipe.role}</div>
                     <h5 class="custom-card-title">${recipe.recipe_name}</h5>
-                    <div class="custom-card-details">
+                    <div class="custom-card-details d-flex justify-content-between align-items-center flex-wrap">
                         <p class="custom-card-text"><i class="fas fa-user"></i> ${recipe.ppl_number}</p>
                         ${recipe.oven_heat ? `<p class="custom-card-text"><i class="fas fa-thermometer-half"></i> ${recipe.oven_heat}</p>` : ''}
-
-                        <p class="custom-card-text"><i class="fas fa-clock"></i> ${recipe.recipe_time}</p>
-                        <p class="custom-card-text"><i class="fas fa-fire"></i> ${recipe.calories} per person</p>
+                        <p class="custom-card-text"><i class="fas fa-clock"></i> ${recipe.recipe_time} </p>
+                        <p class="custom-card-text"><i class="fas fa-fire"></i> ${recipe.calories}  per serving</p>
                     </div>
-                    <div class="custom-card-actions">
+                    <div class="custom-card-actions mt-3">
                         <a href="/recipedetails/${recipe.recipe_id}" class="btn btn-primary">Recipe Details</a>
                         <button class="btn btn-outline-secondary"><i class="fas fa-heart"></i></button>
                         <button class="btn btn-outline-secondary"><i class="fas fa-bookmark"></i></button>
                     </div>
                 </div>
-            </div>`;
-                recipesList.appendChild(recipeDiv);
-            });
-        }
+            </div>
+        `;
+        recipesList.appendChild(recipeDiv);
+    });
+}
+
+
+
 
         function displayPagination() {
             const paginationNumbers = document.getElementById('paginationNumbers');
@@ -261,38 +266,38 @@
     </script>
     <style>
         .custom-card {
-            display: flex;
-            flex-direction: row;
+            background-color: #fff;
             border: 1px solid #ddd;
-            border-radius: 5px;
+            border-radius: 8px;
             overflow: hidden;
-            transition: background-color 0.3s ease;
-            width: 100%;
-            max-width: 100%;
-            height: 220px;
-            /* Increased height */
-            margin-bottom: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
         }
 
+
         .custom-card:hover {
-            background-color: #FF5733;
+            transform: translateY(-5px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
         }
 
         .custom-card-img-wrapper {
-            width: 150px;
-            height: 150px;
-            /* Adjusted height */
+            height: 200px;
             overflow: hidden;
-            position: relative;
-            border-radius: 50%;
-            /* Make the image circular */
-            margin: 10px;
+            border-bottom: 1px solid #ddd;
         }
 
         .custom-menu-img {
             width: 100%;
             height: 100%;
             object-fit: cover;
+        }
+
+        .custom-card-body {
+            padding: 15px;
+            flex-grow: 1;
         }
 
         .role-text {
@@ -305,35 +310,32 @@
             border-radius: 5px;
         }
 
-        .custom-card-body {
-            padding: 15px;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            width: 100%;
-        }
+
 
         .custom-card-title {
-            font-size: 1.25rem;
+            font-size: 18px;
+            font-weight: bold;
             margin-bottom: 10px;
         }
 
         .custom-card-details {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
+            margin-bottom: 15px;
         }
 
+
         .custom-card-text {
-            font-size: 0.875rem;
-            margin-bottom: 5px;
+            margin: 5px 0;
+            font-size: 14px;
+            color: #555;
         }
+
 
         .custom-card-actions {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-top: 10px;
+            padding: 10px 15px;
+            border-top: 1px solid #ddd;
         }
 
         .badge {

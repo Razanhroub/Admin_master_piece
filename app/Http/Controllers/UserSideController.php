@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 use App\Models\Category;
+use App\Models\User;
 class UserSideController extends Controller{
     public function userhome()
     {
@@ -18,6 +19,7 @@ class UserSideController extends Controller{
     }
     public function menu()
     {
+        $categories = Category::where('is_deleted', 0)->get();
         return view('UserSideTheme.pages.menu');
     }
     public function blog(){
@@ -50,6 +52,33 @@ class UserSideController extends Controller{
     public function userregister(){
         return view('UserSideTheme.user.userregister');
         // nested view
+    }
+    public function edit_p(){
+
+        $current_user_id = session('user_id');
+
+        if ($current_user_id) {
+            $user = User::find($current_user_id);
+            // dd([
+            //     'success' => 1,
+            //     'name' => $user->name,
+            //     'email' => $user->email,
+            //     'password' => $user->password
+            // ]);
+            if ($user) {
+                return view('UserSideTheme.pages.edit_p', [
+                    'success' => 1,
+                    'name' => $user->name,
+                    'email' => $user->email
+                ]);
+            }
+        } else {
+            return view('UserSideTheme.pages.edit_p', [
+                'success' => 0
+            ]);
+        }
+
+        return view('UserSideTheme.pages.edit_p');
     }
     
 }

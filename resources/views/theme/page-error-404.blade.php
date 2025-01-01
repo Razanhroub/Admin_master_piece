@@ -1,127 +1,106 @@
-
 <!DOCTYPE html>
-<html class="h-100" lang="en">
-
+<html lang="en">
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>Quixlab - Bootstrap Admin Dashboard Template by Themefisher.com</title>
-    <!-- Favicon icon -->
-    <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('assets') }}/images/favicon.png">
-    <link href="{{ asset('assets') }}/css/style.css" rel="stylesheet">
-    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>404 - Page Not Found</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body, html {
+            height: 100%;
+            margin: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #fdd6cb;
+        }
+
+        .error-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 90%;
+            max-width: 1300px;
+            background-color: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.1);
+            padding: 50px 0;
+        }
+
+        .left-section {
+            flex: 1;
+            padding: 80px;
+            color: #FB5734;
+        }
+
+        .left-section h1 {
+            font-size: 4rem;
+            margin-bottom: 10px;
+        }
+
+        .left-section p {
+            font-size: 1.1rem;
+            margin-bottom: 40px;
+        }
+
+        .go-back {
+            padding: 15px 35px;
+            border: none;
+            border-radius: 30px;
+            background-color: #FB5734;
+            color: white;
+            font-size: 1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .go-back:hover {
+            background-color: #d44729;
+        }
+
+        .right-section {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #fcb19b;
+            border-radius: 10px;
+        }
+
+        .right-section h1 {
+            font-size: 10rem;
+            font-weight: bold;
+            color: #FB5734;
+            display: flex;
+            align-items: center;
+        }
+
+        .donut {
+            font-size: 8rem;
+            margin: 0 20px;
+        }
+
+    </style>
 </head>
+<body>
 
-<body class="h-100">
-    
-    <!--*******************
-        Preloader start
-    ********************-->
-    <div id="preloader">
-        <div class="loader">
-            <svg class="circular" viewBox="25 25 50 50">
-                <circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="3" stroke-miterlimit="10" />
-            </svg>
+    <div class="error-container">
+        <!-- Left Section (Text) -->
+        <div class="left-section">
+            <h1>Ooops...</h1>
+            <p>It seems like we can't find what you searched. The page you were looking for doesn't exist, isn't available or was loading incorrectly.</p>
+            <button class="go-back" onclick="window.history.back()">GO BACK ➜</button>
         </div>
-    </div>
-    <!--*******************
-        Preloader end
-    ********************-->
 
-
-
-    <div class="login-form-bg h-100">
-        <div class="container h-100">
-            <div class="row justify-content-center h-100">
-                <div class="col-xl-6">
-                    <div class="error-content">
-                        <div class="card mb-0">
-                            <div class="card-body text-center pt-5">
-                                <h1 class="error-text text-primary">404</h1>
-                                <h4 class="mt-4"><i class="fa fa-thumbs-down text-danger"></i> Bad Request</h4>
-                                <p>Your Request resulted in an error.</p>
-                                <form class="mt-5 mb-5">
-                                    
-                                    <div class="text-center mb-4 mt-4"><a href="home" class="btn btn-primary">Go to Homepage</a>
-                                    </div>
-                                </form>
-                                <div class="text-center">
-                                    <p>Copyright © Designed by <a href="https://themeforest.net/user/digitalheaps">Digitalheaps</a>, Developed by <a href="https://themeforest.net/user/quixlab">Quixlab</a> 2018</p>
-                                    <ul class="list-inline">
-                                        <li class="list-inline-item"><a href="javascript:void()" class="btn btn-facebook"><i class="fa fa-facebook"></i></a>
-                                        </li>
-                                        <li class="list-inline-item"><a href="javascript:void()" class="btn btn-twitter"><i class="fa fa-twitter"></i></a>
-                                        </li>
-                                        <li class="list-inline-item"><a href="javascript:void()" class="btn btn-linkedin"><i class="fa fa-linkedin"></i></a>
-                                        </li>
-                                        <li class="list-inline-item"><a href="javascript:void()" class="btn btn-google-plus"><i class="fa fa-google-plus"></i></a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+        <!-- Right Section (404) -->
+        <div class="right-section">
+            <h1>
+                4<span class="donut">🍩</span>4
+            </h1>
         </div>
     </div>
 
-
-    
-
-
-
-    <!-- <div class="error-bg h-100">
-        <div class="container h-100">
-            <div class="row justify-content-center h-100">
-                <div class="col-xl-6">
-                    <div class="error-content">
-                        <div class="card mb-0">
-                            <div class="card-body text-center">
-                                <h1 class="error-text text-primary">400</h1>
-                                <h4 class="mt-4"><i class="fa fa-thumbs-down text-danger"></i> Bad Request</h4>
-                                <p>Your Request resulted in an error.</p>
-                                <form class="mt-5 mb-5">
-                                    
-                                    <div class="text-center mb-4 mt-4"><a href="home" class="btn btn-primary">Go to Homepage</a>
-                                    </div>
-                                </form>
-                                <div class="text-center">
-                                    <p>Copyright © Designed by <a href="https://themeforest.net/user/digitalheaps">Digitalheaps</a>, Developed by <a href="https://themeforest.net/user/quixlab">Quixlab</a> 2018</p>
-                                    <ul class="list-inline">
-                                        <li class="list-inline-item"><a href="javascript:void()" class="btn btn-facebook"><i class="fa fa-facebook"></i></a>
-                                        </li>
-                                        <li class="list-inline-item"><a href="javascript:void()" class="btn btn-twitter"><i class="fa fa-twitter"></i></a>
-                                        </li>
-                                        <li class="list-inline-item"><a href="javascript:void()" class="btn btn-linkedin"><i class="fa fa-linkedin"></i></a>
-                                        </li>
-                                        <li class="list-inline-item"><a href="javascript:void()" class="btn btn-google-plus"><i class="fa fa-google-plus"></i></a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div> -->
-
-    
-
-    <!--**********************************
-        Scripts
-    ***********************************-->
-    <script src="{{ asset('assets') }}/plugins/common/common.min.js"></script>
-    <script src="{{ asset('assets') }}/js/custom.min.js"></script>
-    <script src="{{ asset('assets') }}/js/settings.js"></script>
-    <script src="{{ asset('assets') }}/js/gleek.js"></script>
-    <script src="{{ asset('assets') }}/js/styleSwitcher.js"></script>
 </body>
 </html>
-
-
-
-
-

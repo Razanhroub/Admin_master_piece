@@ -1,6 +1,8 @@
 <?php
 
 namespace App\Models;
+use Illuminate\Support\Facades\Hash;
+
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -77,5 +79,14 @@ class User extends Authenticatable
     public function saveForLaters()
     {
         return $this->hasMany(SaveForLater::class);
+    }
+    public function updateProfile(array $data): bool {
+        $this->name = $data['name'];
+        $this->email = $data['email'];
+        
+        if (!empty($data['pass'])) {
+            $this->password = Hash::make($data['pass']);
+        }
+        return $this->save();
     }
 }

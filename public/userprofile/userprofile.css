@@ -4,7 +4,9 @@
 }
 
 .profile-header .profile-header-cover {
-    background-image: url(https://bootdey.com/img/Content/bg1.jpg);
+    /* background-image: url(https://bootdey.com/img/Content/bg1.jpg); */
+    background: rgb(255, 87, 51);
+    background: radial-gradient(circle, rgba(255, 87, 51, 1) 0%, rgba(223, 95, 68, 1) 50%, rgba(196, 100, 79, 1) 100%);
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
