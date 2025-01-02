@@ -1,15 +1,24 @@
 <?php
 
 namespace App\Http\Controllers;
-use App\Models\Category;
+use App\Models\Blog;
 use App\Models\User;
+use App\Models\Recipe;
+use App\Models\Category;
+use App\Models\Ingredient;
+
 class UserSideController extends Controller{
-    public function userhome()
-    {
+    public function userhome() {
+        $blogPostsCount = Blog::where('is_deleted', 0)->count();
+        $activeUsersCount = User::where('is_deleted', 0)->count();
+        $recipesCount = Recipe::where('is_deleted', 0)->count();
+        $ingredientsCount = Ingredient::where('is_deleted', 0)->count();
+    
         $categories = Category::where('is_deleted', 0)
-        ->orderBy('category_name', 'asc') // Sort by category_name in ascending order
-        ->get();
-        return view('UserSideTheme.pages.userhome', compact('categories'));
+            ->orderBy('category_name', 'asc')
+            ->get();
+    
+        return view('UserSideTheme.pages.userhome', compact('blogPostsCount', 'activeUsersCount', 'recipesCount', 'ingredientsCount', 'categories'));
     }
 
     public function homecategories()
@@ -30,9 +39,13 @@ class UserSideController extends Controller{
         return view('UserSideTheme.pages.contact');
         // nested view
     }
-    public function about(){
-        return view('UserSideTheme.pages.about');
-        // nested view
+    public function about() {
+        $blogPostsCount = Blog::where('is_deleted', 0)->count();
+        $activeUsersCount = User::where('is_deleted', 0)->count();
+        $recipesCount = Recipe::where('is_deleted', 0)->count();
+        $ingredientsCount = Ingredient::where('is_deleted', 0)->count();
+    
+        return view('UserSideTheme.pages.about', compact('blogPostsCount', 'activeUsersCount', 'recipesCount', 'ingredientsCount'));
     }
 
     public function p(){
