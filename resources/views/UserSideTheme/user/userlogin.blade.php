@@ -109,7 +109,7 @@
                 </div>
             </div>
             
-            <h2 class="text-3xl font-bold text-center mb-8">Login</h2>
+            <h2 class="text-3xl font-bold text-center mb-8"> User Login</h2>
 
             <form method="POST" action="{{ route('user.userlogin') }}">
                 @csrf

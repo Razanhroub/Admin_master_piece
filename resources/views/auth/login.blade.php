@@ -1,6 +1,13 @@
 <x-guest-layout>
     <!-- Session Status -->
     <x-auth-session-status class="mb-4" :status="session('status')" />
+    <div class="flex justify-center mb-8">
+        <div class="icon-container">
+            <i class="fas fa-user"></i>
+        </div>
+    </div>
+    
+    <h2 class="text-3xl font-bold text-center mb-8" style="font-size:2rem"> Admin Login</h2>
 
     <form method="POST" action="{{ route('login') }}">
         @csrf
