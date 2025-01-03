@@ -82,7 +82,8 @@ class UserSideController extends Controller{
                 return view('UserSideTheme.pages.edit_p', [
                     'success' => 1,
                     'name' => $user->name,
-                    'email' => $user->email
+                    'email' => $user->email,
+                    'last_name' => $user->last_name,
                 ]);
             }
         } else {

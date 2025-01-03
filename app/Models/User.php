@@ -81,7 +81,9 @@ class User extends Authenticatable
         return $this->hasMany(SaveForLater::class);
     }
     public function updateProfile(array $data): bool {
+        // dd($data);
         $this->name = $data['name'];
+        $this->last_name = $data['last_name'];
         $this->email = $data['email'];
         
         if (!empty($data['pass'])) {

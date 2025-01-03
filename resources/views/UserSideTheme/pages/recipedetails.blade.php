@@ -30,7 +30,7 @@
                             <p class="custom-card-text mr-3"><i class="fas fa-fire"></i> {{ $recipe->calories }} per serving</p>
                         </div>
                         <div>
-                            <h5>Role: {{ $recipe->role }}</h5>
+                            <h5>Recipe by: {{ $recipe->role }}</h5>
                         </div>
                     </div>
                     
@@ -45,14 +45,14 @@
                                 $instructions = preg_split('/(?<!\d)\.(?!\d)/', $recipe->instructions);
                             @endphp
                             @foreach ($instructions as $instruction)
-                                <p>{{ trim($instruction) }}.</p>
+                                <p>{{ trim($instruction) }}</p>
                             @endforeach
                         </div>
                         <div class="ml-4" style="background-color: rgb(255,87,51); padding: 15px; border-radius: 5px; color: white;">
-                            <h3>Ingredients</h3>
+                            <h3 style="color: white">Ingredients</h3>
                             <div style="list-style-type: none; padding-left: 0;">
                                 @foreach ($ingredients as $ingredient)
-                                    <p>{{ $ingredient->quantity }} {{ $ingredient->unit }} of {{ $ingredient->ingredient_name }}</p>
+                                    <p>{{ $ingredient->quantity }} {{ $ingredient->unit }}  {{ $ingredient->ingredient_name }}</p>
                                 @endforeach
                             </div>
                         </div>

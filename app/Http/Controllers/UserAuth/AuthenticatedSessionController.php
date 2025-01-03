@@ -41,7 +41,9 @@ class AuthenticatedSessionController extends Controller
         if ($user) {
             // Store the username and user ID in the session
             session(['username' => $user->name]);
+            session(['userlastname' => $user->last_name]);
             session(['user_id' => $user->id]);
+            // dd($user->last_name);
     
             // dd($user->name, $user->id);
         } else {

@@ -31,7 +31,6 @@
     color: #fff;
     padding: 60px
 }
-
 .profile-header-img {
     float: left;
     width: 120px;
@@ -41,22 +40,23 @@
     z-index: 10;
     margin: 0 0 -20px;
     padding: 3px;
-    border-radius: 4px;
-    background: #fff
+    border-radius: 50%; /* Changed from 4px to 50% to make it circular */
+    background: #fff;
 }
 
 .profile-header-img img {
-    max-width: 100%
+    max-width: 100%;
 }
 
 .profile-header-info h4 {
     font-weight: 500;
-    color: #fff
+    color: #fff;
 }
 
 .profile-header-img+.profile-header-info {
-    margin-left: 140px
+    margin-left: 140px;
 }
+
 
 .profile-header .profile-header-content,
 .profile-header .profile-header-tab {

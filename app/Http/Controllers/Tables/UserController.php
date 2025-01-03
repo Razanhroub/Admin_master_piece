@@ -149,6 +149,7 @@ class UserController extends Controller
         $user_id = session('user_id');
         $validatedData = $request->validate([
             'name' =>'required|string|max:255',
+            'last_name' =>'required|string|max:255',
             'email' => 'required|email|max:255|unique:users,email,' . $user_id,
             'pass' => [
                 'nullable',
@@ -167,6 +168,7 @@ class UserController extends Controller
 
             session()->flash('success', 'Profile updated successfully');
             session(['username' => $validatedData['name']]);
+            session(['userlastname' => $validatedData['last_name']]);
         } else {
             session()->flash('error', 'Failed to update profile');
         }

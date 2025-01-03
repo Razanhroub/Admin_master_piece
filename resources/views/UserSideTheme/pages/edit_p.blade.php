@@ -38,6 +38,13 @@
                         <span class="text-danger">{{ $message }}</span>
                     @enderror
                 </div>
+                <div class="form-group">
+                    <label for="lNameField">Last Name</label>
+                    <input name="last_name" value="{{ $last_name }}" type="text" class="form-control" id="lNameField" aria-describedby="lNameHelp" placeholder="Last Name">
+                    @error('last_name')
+                        <span class="text-danger">{{ $message }}</span>
+                    @enderror
+                </div>
 
 
                 <div class="form-group">

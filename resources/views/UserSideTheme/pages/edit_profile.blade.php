@@ -15,14 +15,14 @@
                     <div class="profile-header-content">
                         <!-- BEGIN profile-header-img -->
                         <div class="profile-header-img">
-                            <img src="https://bootdey.com/img/Content/avatar/avatar3.png" alt="pfp">
+                            <img src="{{ asset('Userassets/images/profileimg.jpg') }}" alt="profile image">
                         </div>
+                        
                         <!-- END profile-header-img -->
                         <!-- BEGIN profile-header-info -->
                         <div class="profile-header-info">
-                            <h4 class="m-t-10 m-b-5">{{ session('username') }}</h4>
-                            <p class="m-b-10">UXUI + Frontend Developer</p>
-                            <a href="#" class="btn btn-sm btn-info mb-2">Edit Profile</a>
+                            <a  class="btn btn-sm btn-info mb-2" style="visibility: hidden;"></a>
+                            <h4 class="m-t-10 m-b-5">{{ session('username') }} {{ session('userlastname') }}</h4>
                         </div>
                         <!-- END profile-header-info -->
                     </div>
