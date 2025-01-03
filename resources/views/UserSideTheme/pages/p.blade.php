@@ -1,4 +1,7 @@
-@extends('UserSideTheme.pages.edit_profile')
+@extends('UserSideTheme.pages.profile.profile')
+@section('active-blogs')
+active show
+@endsection
 
 @section('main_content')
 <!-- begin profile-content -->

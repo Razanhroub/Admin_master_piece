@@ -1,5 +1,9 @@
-@extends('UserSideTheme.pages.edit_profile')
+@extends('UserSideTheme.pages.profile.profile')
+@section('active-edit')
+active show
+@endsection
 @section('main_content')
+
 
 <div class="row justify-content-center align-items-center p-5 m-5">
     @if (session('success'))

@@ -76,6 +76,7 @@ Route::controller(UserSideController::class)->group(function () {
     Route::get('/userlogin', 'userlogin')->name('user.userlogin');
     Route::get('/userregister', 'userregister')->name('user.userregister');
     Route::get('/edit-profile', 'edit_p')->name('edit_p');
+    Route::get('/userfollowers', 'userfollowers')->name('userfollowers');
 
 
 });

@@ -66,6 +66,9 @@ class UserSideController extends Controller{
         return view('UserSideTheme.user.userregister');
         // nested view
     }
+    public function userfollowers(){
+        return view('UserSideTheme.pages.profile.userfollowers');
+    }
     public function edit_p(){
 
         $current_user_id = session('user_id');
@@ -77,9 +80,9 @@ class UserSideController extends Controller{
             //     'name' => $user->name,
             //     'email' => $user->email,
             //     'password' => $user->password
-            // ]);
+            // ]);  
             if ($user) {
-                return view('UserSideTheme.pages.edit_p', [
+                return view('UserSideTheme.pages.profile.edit_p', [
                     'success' => 1,
                     'name' => $user->name,
                     'email' => $user->email,
@@ -87,12 +90,12 @@ class UserSideController extends Controller{
                 ]);
             }
         } else {
-            return view('UserSideTheme.pages.edit_p', [
+            return view('UserSideTheme.pages.profile.edit_p', [
                 'success' => 0
             ]);
         }
 
-        return view('UserSideTheme.pages.edit_p');
+        return view('UserSideTheme.pages.profile.edit_p');
     }
     
 }

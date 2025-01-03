@@ -30,13 +30,16 @@
                     <!-- BEGIN profile-header-tab -->
                     <ul class="profile-header-tab nav nav-tabs">
                         <li class="nav-item">
-                            <a href="https://www.bootdey.com/snippets/view/bs4-profile-with-timeline-posts" target="__blank" class="nav-link_">blogs</a></li>
+                            <a href="p"  class="nav-link_  @yield('active-blogs')">blogs</a></li>
                         <li class="nav-item">
-                            <a href="edit-profile" class="nav-link_">edit profile</a>
+                            <a href="edit-profile" class="nav-link_  @yield('active-edit')">edit profile</a>
                         </li>
                         <li class="nav-item">
-                            <a href="https://www.bootdey.com/snippets/view/bs4-profile-friend-list" target="__blank" class="nav-link_ active show">followers</a>
+                            <a href="userfollowers"  class="nav-link_  @yield('active-userfollowers')">followers</a>
                         </li>
+                        {{-- <li class="nav-item">
+                            <a href="https://www.bootdey.com/snippets/view/bs4-profile-friend-list" target="__blank" class="nav-link_  @yield('active-profile')">followers</a>
+                        </li> --}}
                     </ul>
                     <!-- END profile-header-tab -->
                 </div>
