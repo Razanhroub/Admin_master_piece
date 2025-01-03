@@ -51,7 +51,6 @@ class FilterationController extends Controller
 
         $recipes = $recipesQuery->select(
             'recipes.recipe_id',
-            'recipes.blog_id',
             'recipes.sub_category_id',
             'recipes.role',
             'recipes.recipe_name',
@@ -115,7 +114,6 @@ class FilterationController extends Controller
 
         $recipes = $recipesQuery->select(
             'recipes.recipe_id',
-            'recipes.blog_id',
             'recipes.sub_category_id',
             'recipes.role',
             'recipes.recipe_name',

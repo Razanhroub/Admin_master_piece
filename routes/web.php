@@ -80,6 +80,14 @@ Route::controller(UserSideController::class)->group(function () {
 
 
 });
+// Route to display the form for creating a blog
+Route::get('/createblog', [BlogController::class, 'showCreateBlogForm'])->name('createblog');
+
+// Route to handle the form submission and store the blog
+Route::post('/createblog', [BlogController::class, 'storeBlog'])->name('createblog.store');
+
+// Route to get subcategories based on the selected category
+Route::get('/get-subcategories', [BlogController::class, 'getSubcategories']);
 Route::post('/edit-profile', [UserController::class, 'updateProfile'])->name('editProfile');
 
 Route::get('/recipedetails/{id}', [RecipeController::class, 'showRecipeDetails'])->name('recipedetails');

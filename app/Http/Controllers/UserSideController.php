@@ -69,6 +69,7 @@ class UserSideController extends Controller{
     public function userfollowers(){
         return view('UserSideTheme.pages.profile.userfollowers');
     }
+  
     public function edit_p(){
 
         $current_user_id = session('user_id');
