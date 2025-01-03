@@ -7,133 +7,75 @@
 @endsection
 @section('blog-active','active')
 @section('content')
-    <section class="ftco-section">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-4 ftco-animate">
-                    <div class="blog-entry">
-                        <a href="blog-single" class="block-20"
-                            style="background-image: url('{{ asset('Userassets') }}/images/image_1.jpg');">
-                        </a>
-                        <div class="text pt-3 pb-4">
-                            <div class="meta">
-                                <div><a href="#">June 25, 2019</a></div>
-                                <div><a href="#">Admin</a></div>
-                            </div>
-                            <h3 class="heading"><a href="#">Taste the delicious foods in Asia</a></h3>
-                            <p class="clearfix">
-                                <a href="#" class="float-left read">Read more</a>
-                                <a href="#" class="float-right meta-chat"><span class="icon-chat"></span> 3</a>
-                            </p>
-                        </div>
-                    </div>
+<ul class="timeline" style="background: rgb(240,240,240)">
+    <li>
+        <!-- begin timeline-time -->
+        <div class="timeline-time">
+            <span class="date">today</span>
+            <span class="time">04:20</span>
+        </div>
+        <!-- end timeline-time -->
+        <!-- begin timeline-icon -->
+        <div class="timeline-icon">
+            <a href="javascript:;">&nbsp;</a>
+        </div>
+        <!-- end timeline-icon -->
+        <!-- begin timeline-body -->
+        <div class="timeline-body">
+            <div class="timeline-header">
+                <span class="userimage"><img
+                        src="https://bootdey.com/img/Content/avatar/avatar3.png"
+                        alt=""></span>
+                <span class="username"><a href="javascript:;">{{ session('username') }} {{ session('userlastname') }}</a>
+                    <small></small></span>
+            </div>
+            <div class="timeline-content">
+                <p>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc
+                    faucibus turpis quis tincidunt luctus.
+                    Nam sagittis dui in nunc consequat, in imperdiet nunc sagittis.
+                </p>
+            </div>
+            <div class="timeline-likes">
+                <div class="stats-right">
+                    <span class="stats-text">21 Comments</span>
                 </div>
-                <div class="col-md-4 ftco-animate">
-                    <div class="blog-entry">
-                        <a href="blog-single" class="block-20"
-                            style="background-image: url('{{ asset('Userassets') }}/images/image_2.jpg');">
-                        </a>
-                        <div class="text pt-3 pb-4">
-                            <div class="meta">
-                                <div><a href="#">June 25, 2019</a></div>
-                                <div><a href="#">Admin</a></div>
-                            </div>
-                            <h3 class="heading"><a href="#">Taste the delicious foods in Asia</a></h3>
-                            <p class="clearfix">
-                                <a href="#" class="float-left read">Read more</a>
-                                <a href="#" class="float-right meta-chat"><span class="icon-chat"></span> 3</a>
-                            </p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4 ftco-animate">
-                    <div class="blog-entry">
-                        <a href="blog-single" class="block-20"
-                            style="background-image: url('{{ asset('Userassets') }}/images/image_3.jpg');">
-                        </a>
-                        <div class="text pt-3 pb-4">
-                            <div class="meta">
-                                <div><a href="#">June 25, 2019</a></div>
-                                <div><a href="#">Admin</a></div>
-                            </div>
-                            <h3 class="heading"><a href="#">Taste the delicious foods in Asia</a></h3>
-                            <p class="clearfix">
-                                <a href="#" class="float-left read">Read more</a>
-                                <a href="#" class="float-right meta-chat"><span class="icon-chat"></span> 3</a>
-                            </p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4 ftco-animate">
-                    <div class="blog-entry">
-                        <a href="blog-single.html" class="block-20"
-                            style="background-image: url('{{ asset('Userassets') }}/images/image_4.jpg');">
-                        </a>
-                        <div class="text pt-3 pb-4">
-                            <div class="meta">
-                                <div><a href="#">June 25, 2019</a></div>
-                                <div><a href="#">Admin</a></div>
-                            </div>
-                            <h3 class="heading"><a href="#">Taste the delicious foods in Asia</a></h3>
-                            <p class="clearfix">
-                                <a href="#" class="float-left read">Read more</a>
-                                <a href="#" class="float-right meta-chat"><span class="icon-chat"></span> 3</a>
-                            </p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4 ftco-animate">
-                    <div class="blog-entry">
-                        <a href="blog-single.html" class="block-20"
-                            style="background-image: url('{{ asset('Userassets') }}/images/image_5.jpg');">
-                        </a>
-                        <div class="text pt-3 pb-4">
-                            <div class="meta">
-                                <div><a href="#">June 25, 2019</a></div>
-                                <div><a href="#">Admin</a></div>
-                            </div>
-                            <h3 class="heading"><a href="#">Taste the delicious foods in Asia</a></h3>
-                            <p class="clearfix">
-                                <a href="#" class="float-left read">Read more</a>
-                                <a href="#" class="float-right meta-chat"><span class="icon-chat"></span> 3</a>
-                            </p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4 ftco-animate">
-                    <div class="blog-entry">
-                        <a href="blog-single.html" class="block-20"
-                            style="background-image: url('{{ asset('Userassets') }}/images/image_6.jpg');">
-                        </a>
-                        <div class="text pt-3 pb-4">
-                            <div class="meta">
-                                <div><a href="#">June 25, 2019</a></div>
-                                <div><a href="#">Admin</a></div>
-                            </div>
-                            <h3 class="heading"><a href="#">Taste the delicious foods in Asia</a></h3>
-                            <p class="clearfix">
-                                <a href="#" class="float-left read">Read more</a>
-                                <a href="#" class="float-right meta-chat"><span class="icon-chat"></span> 3</a>
-                            </p>
-                        </div>
-                    </div>
+                <div class="stats">
+                    <span class="fa-stack fa-fw stats-icon">
+                        <i class="fa fa-circle fa-stack-2x text-danger"></i>
+                        <i class="fa fa-heart fa-stack-1x fa-inverse t-plus-1"></i>
+                    </span>
+                    <span class="fa-stack fa-fw stats-icon">
+                        <i class="fa fa-circle fa-stack-2x text-primary"></i>
+                        <i class="fa fa-thumbs-up fa-stack-1x fa-inverse"></i>
+                    </span>
+                    <span class="stats-total">4.3k</span>
                 </div>
             </div>
-            <div class="row no-gutters my-5">
-                <div class="col text-center">
-                    <div class="block-27">
-                        <ul>
-                            <li><a href="#">&lt;</a></li>
-                            <li class="active"><span>1</span></li>
-                            <li><a href="#">2</a></li>
-                            <li><a href="#">3</a></li>
-                            <li><a href="#">4</a></li>
-                            <li><a href="#">5</a></li>
-                            <li><a href="#">&gt;</a></li>
-                        </ul>
-                    </div>
+            <div class="timeline-footer">
+                <a href="javascript:;" class="m-r-15 text-inverse-lighter"><i
+                        class="fa fa-thumbs-up fa-fw fa-lg m-r-3"></i> Like</a>
+                <a href="javascript:;" class="m-r-15 text-inverse-lighter"><i
+                        class="fa fa-comments fa-fw fa-lg m-r-3"></i> Comment</a>
+                <a href="javascript:;" class="m-r-15 text-inverse-lighter"><i
+                        class="fa fa-bookmark fa-fw fa-lg m-r-3"></i> save</a>
+            </div>
+            <div class="timeline-comment-box">
+                <div class="user"><img
+                        src="https://bootdey.com/img/Content/avatar/avatar3.png"></div>
+                <div class="input">
+                    <form action="">
+                        <div class="input-group">
+                            <input type="text" class="form-control rounded-left"
+                                placeholder="Write a comment...">
+                            <button class="btn btn-custom-primary f-s-12 rounded-right" type="button">Comment</button>
+                        </div>
+                    </form>
                 </div>
             </div>
         </div>
-    </section>
+        <!-- end timeline-body -->
+    </li>
+</ul>
+
 @endsection

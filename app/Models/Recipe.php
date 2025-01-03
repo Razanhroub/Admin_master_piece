@@ -19,10 +19,7 @@ class Recipe extends Model
     ];
 
     // Relationships
-    public function blog()
-    {
-        return $this->belongsTo(Blog::class);
-    }
+   
 
     public function subcategory()
     {
