@@ -8185,10 +8185,10 @@ Fixing Order => Base + Typography >> General Layout + Grid >> Page Layout + Comp
       .nk-sidebar .metismenu > li:hover span, .nk-sidebar .metismenu > li:focus span, .nk-sidebar .metismenu > li.active span {
         color: #464a53; }
       .nk-sidebar .metismenu > li:hover > a {
-        background: #F3F1FA;
+        background: #FCD5CA;
         color: #FF5733; }
       .nk-sidebar .metismenu > li.active > a {
-        background: #F3F1FA;
+        background: #FCD5CA;
         color: #464a53; }
       .nk-sidebar .metismenu > li.active ul a {
         color: #464a53; }
@@ -8215,7 +8215,7 @@ Fixing Order => Base + Typography >> General Layout + Grid >> Page Layout + Comp
       transition: all 0.4s ease-in-out; }
       .nk-sidebar .metismenu a:hover, .nk-sidebar .metismenu a:active, .nk-sidebar .metismenu a.active {
         text-decoration: none;
-        background-color: #F3F1FA; }
+        background-color: #FCD5CA; }
     .nk-sidebar .metismenu .has-arrow:after {
       position: absolute;
       content: "";

@@ -15,7 +15,7 @@
   @include('theme.partials.preloader')
 
    
-   <div id="main-wrapper">
+   {{-- <div id="main-wrapper"> --}}
 
       @include('theme.partials.nav')
 
@@ -26,7 +26,7 @@
       
        @include('theme.partials.footer')
 
-   </div>
+   {{-- </div> --}}
   @include('theme.partials.scripts')
 
 </body>

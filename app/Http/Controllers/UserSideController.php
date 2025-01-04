@@ -39,6 +39,10 @@ class UserSideController extends Controller{
         return view('UserSideTheme.pages.contact');
         // nested view
     }
+    public function welcome(){
+        return view('UserSideTheme.user.userlogin');
+        // nested view
+    }
     public function about() {
         $blogPostsCount = Blog::where('is_deleted', 0)->count();
         $activeUsersCount = User::where('is_deleted', 0)->count();

@@ -18,10 +18,9 @@ use App\Http\Controllers\Tables\SubcategoryController;
 
 
 
-Route::get('/', function () {
-    return view('welcome');
-});
 
+
+Route::get('/', [UserSideController::class, 'welcome']);
 
 
 
