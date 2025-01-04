@@ -9,17 +9,20 @@ class Recipe extends Model
 {
     use HasFactory;
     protected $fillable = [
-        'blog_id',
         'sub_category_id',
-        'ingredient_id',
-        'role',
         'recipe_name',
         'instructions',
+        'recipe_img',
+        'ppl_number',
+        'calories',
+        'oven_heat',
+        'recipe_time',
+        'role',
         'is_deleted'
     ];
 
     // Relationships
-   
+
 
     public function subcategory()
     {

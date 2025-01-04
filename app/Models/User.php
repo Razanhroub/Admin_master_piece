@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Models;
+
 use Illuminate\Support\Facades\Hash;
 
 
@@ -23,12 +24,13 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
-        'birth_of_date',
-        'address',
-        'phone_number',
         'last_name',
+        'phone_number',
+        'address',
+        'birth_of_date',
         'is_deleted',
         'role',
+        'profile_picture'
     ];
 
     /**
@@ -80,12 +82,13 @@ class User extends Authenticatable
     {
         return $this->hasMany(SaveForLater::class);
     }
-    public function updateProfile(array $data): bool {
+    public function updateProfile(array $data): bool
+    {
         // dd($data);
         $this->name = $data['name'];
         $this->last_name = $data['last_name'];
         $this->email = $data['email'];
-        
+
         if (!empty($data['pass'])) {
             $this->password = Hash::make($data['pass']);
         }

@@ -68,7 +68,6 @@ Route::middleware(['auth', 'verified', 'admin'])->group(function () {
 Route::controller(UserSideController::class)->group(function () {
     // Route::get('/userhome', 'userhome');
     Route::get('/menu', 'menu');
-    Route::get('/blog', 'blog');
     Route::get('/contact', 'contact');
     Route::get('/about', 'about');
     Route::get('/p', 'p');
@@ -77,9 +76,10 @@ Route::controller(UserSideController::class)->group(function () {
     Route::get('/userregister', 'userregister')->name('user.userregister');
     Route::get('/edit-profile', 'edit_p')->name('edit_p');
     Route::get('/userfollowers', 'userfollowers')->name('userfollowers');
-
-
+    
+    
 });
+Route::get('/blog', [BlogController::class,'blog'])->name('blog');
 // Route to display the form for creating a blog
 Route::get('/createblog', [BlogController::class, 'showCreateBlogForm'])->name('createblog');
 

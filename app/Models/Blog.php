@@ -11,23 +11,25 @@ class Blog extends Model
 
     protected $fillable = [
         'user_id',
-        'title',
-        'content',
-        'image',
+        'recipe_id',
+        'iframelink',
         'accepted',
         'is_deleted'
     ];
-
     // Relationships
     public function user()
     {
-        return $this->belongsTo(User::class);
+        return $this->belongsTo(User::class, 'user_id', 'id');
     }
 
     public function comments()
     {
         return $this->hasMany(Comment::class);
     }
+    public function recipe()
+{
+    return $this->belongsTo(Recipe::class, 'recipe_id', 'recipe_id');
+}
 
     public function ratings()
     {
