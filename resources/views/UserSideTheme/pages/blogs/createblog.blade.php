@@ -52,7 +52,8 @@
                             </div>
                         </div>
                         <div class="form-group">
-                            <label for="instructions">Instructions</label>
+                            <label for="instructions">Instructions</label><br>
+                            <span style="font-size : 0.75rem; color: rgb(255,87,51)">please when writing you're instructions start each instrction with number and dot "." and end it with a dot "." </span>
                             <textarea id="instructions" name="instructions" class="form-control form-control-sm custom-input" required></textarea>
                         </div>
 
@@ -70,7 +71,7 @@
                         </div>
                         <div class="form-row">
                             <div class="form-group col-md-6">
-                                <label for="oven_heat">Oven Temperature</label>
+                                <label for="oven_heat">Oven Temperature (In F)</label>
                                 <input required type="number" id="oven_heat" name="oven_heat"
                                     class="form-control form-control-sm custom-input">
                             </div>

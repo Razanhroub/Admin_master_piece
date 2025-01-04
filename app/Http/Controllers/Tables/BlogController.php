@@ -20,6 +20,8 @@ class BlogController extends Controller
     public function showCreateBlogForm()
     {
         if (!session('user_id')) {
+            // Store the intended URL in the session
+            session(['intended_url' => url()->current()]);
             // Redirect to user login page if user_id is not found
             return Redirect::to('userlogin');
         }

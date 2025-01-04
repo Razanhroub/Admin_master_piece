@@ -15,7 +15,7 @@
                 <li class="nav-item @yield('userhome-active')"><a href="{{ url('/userhome') }}" class="nav-link">Home</a></li>
                 <li class="nav-item @yield('menu-active')"><a href="{{ url('/menu') }}" class="nav-link">Recipes</a></li>
                 <li class="nav-item @yield('categories-active')"><a href="{{ url('/categories') }}" class="nav-link">Categories</a></li>
-                <li class="nav-item @yield('blog-active')"><a href="{{ url('/blog') }}" class="nav-link">Blog</a></li>
+                <li class="nav-item @yield('blog-active')"><a href="{{ url('/blog') }}" class="nav-link">Blogs</a></li>
                 <li class="nav-item @yield('contact-active')"><a href="{{ url('/contact') }}" class="nav-link">Contact</a></li>
                 <li class="nav-item @yield('about-active')"><a href="{{ url('/about') }}" class="nav-link">About us</a></li>
                 

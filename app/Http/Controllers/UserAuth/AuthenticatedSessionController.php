@@ -50,6 +50,13 @@ class AuthenticatedSessionController extends Controller
             // Handle the case where the user is not found
             return redirect()->back()->withErrors(['email' => 'User not found.']);
         }
+        if (session()->has('intended_url')) {
+            $intendedUrl = session('intended_url');
+            // Remove the intended URL from the session
+            session()->forget('intended_url');
+            // Redirect to the intended URL
+            return redirect()->to($intendedUrl);
+        }
         
         // Redirect to the user home page
         return redirect()->route('userhome');
