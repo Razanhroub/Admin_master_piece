@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Recipe extends Model
 {
     use HasFactory;
+    
     protected $fillable = [
         'sub_category_id',
         'recipe_name',
@@ -20,17 +21,26 @@ class Recipe extends Model
         'role',
         'is_deleted'
     ];
+    protected $primaryKey = 'recipe_id'; // Update this if your primary key is named differently
+
 
     // Relationships
 
 
-    public function subcategory()
-    {
-        return $this->belongsTo(Subcategory::class, 'sub_category_id', 'subcategory_id');
-    }
-
+   
     public function ingredients()
     {
-        return $this->hasMany(Ingredient::class, 'recipe_id', 'recipe_id');
+        return $this->hasMany(Ingredient::class, 'recipe_id', 'recipe_id')->where('is_deleted', 0);
+    }
+
+    public function category()
+    {
+        return $this->belongsTo(Category::class, 'category_id', 'category_id')->where('is_deleted', 0);
+    }
+
+    public function subcategory()
+    {
+        return $this->belongsTo(Subcategory::class, 'sub_category_id', 'subcategory_id')->where('is_deleted', 0);
     }
 }
+
