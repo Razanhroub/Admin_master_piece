@@ -11350,6 +11350,30 @@ h1, h2, h3, h4, h5,
   opacity: 1 !important;
 }
 
+.timeline-content img {
+  width: 500px;
+  height: 400px;
+  object-fit: cover; /* Ensures the image covers the area without distortion */
+  display: block;
+  margin: 0 auto; /* Centers the image */
+  border-radius: 10px;
+}
+.video-container {
+  position: relative;
+  padding-bottom: 56.25%; /* 16:9 aspect ratio */
+  height: 0;
+  overflow: hidden;
+  max-width: 100%;
+  background: #000;
+}
+
+.video-container iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
 .btn-custom-primary:focus, .btn-custom-primary.focus {
   -webkit-box-shadow: 0 0 0 0.2rem rgba(255, 88, 51, 0.5);
   box-shadow: 0 0 0 0.2rem rgba(255, 88, 51, 0.5);

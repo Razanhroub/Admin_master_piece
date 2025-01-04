@@ -108,8 +108,7 @@ class BlogController extends Controller
         ]);
     }
     public function blog(Request $request)
-{
-    if ($request->ajax()) {
+    {
         $blogs = Blog::with(['user', 'recipe'])
             ->where('is_deleted', 0)
             ->whereHas('recipe', function ($query) {
@@ -120,25 +119,15 @@ class BlogController extends Controller
             })
             ->orderBy('created_at', 'desc')
             ->paginate(10);
-
-        return response()->json([
-            'blogs' => $blogs,
-        ]);
+    
+        if ($request->ajax()) {
+            return response()->json([
+                'blogs' => $blogs,
+            ]);
+        }
+    
+        return view('UserSideTheme.pages.blog', compact('blogs'));
     }
-
-    $blogs = Blog::with(['user', 'recipe'])
-        ->where('is_deleted', 0)
-        ->whereHas('recipe', function ($query) {
-            $query->where('is_deleted', 0);
-        })
-        ->whereHas('user', function ($query) {
-            $query->where('is_deleted', 0);
-        })
-        ->orderBy('created_at', 'desc')
-        ->paginate(10);
-
-    return view('UserSideTheme.pages.blog', compact('blogs'));
-}
     public function index()
     {
         return view('theme.Blogs-table');

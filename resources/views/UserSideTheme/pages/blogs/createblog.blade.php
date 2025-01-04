@@ -140,32 +140,7 @@
             return true;
         }
 
-        function isValidYouTubeUrl(url) {
-            const regex = /^(https?\:\/\/)?(www\.youtube\.com|youtu\.?be)\/.+$/;
-            return regex.test(url);
-        }
-
-        function validateYouTubeLink() {
-            const youtubeLinkInput = document.getElementById('youtube_link');
-            const youtubeLink = youtubeLinkInput.value.trim();
-
-            if (youtubeLink && !isValidYouTubeUrl(youtubeLink)) {
-                Swal.fire({
-                    icon: 'error',
-                    title: 'Invalid Link',
-                    text: 'Please enter a valid YouTube video link.',
-                    confirmButtonText: 'OK',
-                    customClass: {
-                        confirmButton: ' btn btn-custom-primary' // Add your custom class here
-                    }
-                });
-
-                return false;
-            }
-
-
-            return true;
-        }
+       
     </script>
     <style>
         .custom-input {

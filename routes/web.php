@@ -79,8 +79,7 @@ Route::controller(UserSideController::class)->group(function () {
     
     
 });
-Route::get('/blog', [BlogController::class,'blog'])->name('blog');
-// Route to display the form for creating a blog
+Route::get('/blog', [BlogController::class, 'blog'])->name('blog');// Route to display the form for creating a blog
 Route::get('/createblog', [BlogController::class, 'showCreateBlogForm'])->name('createblog');
 
 // Route to handle the form submission and store the blog
