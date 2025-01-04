@@ -58,7 +58,7 @@ Route::middleware(['auth', 'verified', 'admin'])->group(function () {
     Route::get('/user/{id}/edit', [UserController::class, 'edit'])->name('user.edit');
     Route::resource('/user-table', UserController::class);
     Route::resource('/categories-table', CategoryController::class);
-    Route::resource('/subcategories', SubcategoryController::class);
+    Route::resource('/subcategories-table', SubcategoryController::class);
     Route::resource('/recipes-table', RecipeController::class);
     Route::resource('/ingredients-table', IngredientController::class);
     Route::resource('/Blogs-table', BlogController::class);

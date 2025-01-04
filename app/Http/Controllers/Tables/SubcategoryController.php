@@ -1,67 +1,62 @@
 <?php
+
 namespace App\Http\Controllers\Tables;
 
-use App\Http\Controllers\Controller; 
-use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 use App\Models\Subcategory;
+use App\Models\Category;
+use Illuminate\Http\Request;
 
 class SubcategoryController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
     public function index()
     {
-            $subcategories = Subcategory::all();
-        return view('theme.subcategories', compact('subcategories'));
+        $subcategories = Subcategory::with('category', 'recipes')->where('is_deleted', 0)->get();
+        $categories = Category::where('is_deleted', 0)->get();
 
+        return view('theme.subcategories-table', compact('subcategories', 'categories'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'sub_category_name' => 'required|string|max:255|unique:subcategories,sub_category_name,NULL,id,category_id,' . $request->category_id,
+            'category_id' => 'required|exists:categories,category_id',
+        ]);
+
+        $subcategory = new Subcategory();
+        $subcategory->sub_category_name = $request->sub_category_name;
+        $subcategory->category_id = $request->category_id;
+        $subcategory->save();
+
+        return response()->json(['message' => 'Subcategory added successfully!']);
     }
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(Subcategory $subcategory)
+    public function update(Request $request, $id)
     {
-        //
+        $request->validate([
+            'sub_category_name' => 'required|string|max:255|unique:subcategories,sub_category_name,' . $id . ',subcategory_id,category_id,' . $request->category_id,
+        ]);
+
+        $subcategory = Subcategory::findOrFail($id);
+        $subcategory->sub_category_name = $request->sub_category_name;
+        $subcategory->save();
+
+        return response()->json(['message' => 'Subcategory updated successfully!']);
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(Subcategory $subcategory)
+    public function destroy($id)
     {
-        //
+        $subcategory = Subcategory::findOrFail($id);
+        $subcategory->is_deleted = 1;
+        $subcategory->save();
+
+        return redirect()->route('subcategories-table.index')->with('success', 'Subcategory deleted successfully!');
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, Subcategory $subcategory)
+    public function edit($id)
     {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(Subcategory $subcategory)
-    {
-        //
+        $subcategory = Subcategory::findOrFail($id);
+        return response()->json($subcategory);
     }
 }
