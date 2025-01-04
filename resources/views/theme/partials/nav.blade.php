@@ -7,7 +7,7 @@
             <b class="logo-abbr"><img src="{{ asset('assets') }}/images/logo.png" alt=""> </b>
             <span class="logo-compact"><img src="{{ asset('assets') }}/images/logo.png" alt=""></span>
             <span class="brand-title">
-                <img src="{{ asset('assets') }}/images/logo-text.png" alt="">
+                Dishlicious
             </span>
         </a>
     </div>

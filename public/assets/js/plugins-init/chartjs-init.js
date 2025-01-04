@@ -23,13 +23,13 @@
             }, {
                 label: "Saikot",
                 data: [0, 30, 5, 3, 15, 5, 0],
-                backgroundColor: '#7571F9',
-                borderColor: '#7571F9',
+                backgroundColor: '#FF5733',
+                borderColor: '#FF5733',
                 borderWidth: 0.5,
                 pointStyle: 'circle',
                 pointRadius: 5,
                 pointBorderColor: 'transparent',
-                pointBackgroundColor: '#7571F9',
+                pointBackgroundColor: '#FF5733',
             }]
         },
         options: {
@@ -98,12 +98,12 @@
                 label: "Clothes",
                 data: [0, 10, 20, 10, 25, 15, 150],
                 backgroundColor: 'transparent',
-                borderColor: '#7571F9',
+                borderColor: '#FF5733',
                 borderWidth: 3,
                 pointStyle: 'circle',
                 pointRadius: 5,
                 pointBorderColor: 'transparent',
-                pointBackgroundColor: '#7571F9',
+                pointBackgroundColor: '#FF5733',
 
             }, {
                 label: "Foods",
@@ -203,7 +203,7 @@
                     label: "My Second dataset",
                     borderColor: "rgba(117, 113, 249, 0.9)",
                     borderWidth: "1",
-                    backgroundColor: "rgba(117, 113, 249, 0.5)",
+                    backgroundColor: "#FF5733",
                     pointHighlightStroke: "rgba(117, 113, 249,1)",
                     data: [16, 32, 18, 26, 42, 33, 44]
                 }
@@ -237,7 +237,7 @@
                     data: [65, 59, 80, 81, 56, 55, 40],
                     borderColor: "rgba(117, 113, 249, 0.9)",
                     borderWidth: "0",
-                    backgroundColor: "rgba(117, 113, 249, 0.5)"
+                    backgroundColor: "#FF5733"
                 },
                 {
                     label: "My Second dataset",
@@ -283,7 +283,7 @@
                     data: [28, 12, 40, 19, 63, 27, 87],
                     borderColor: "rgba(117, 113, 249, 0.7",
                     borderWidth: "1",
-                    backgroundColor: "rgba(117, 113, 249, 0.5)"
+                    backgroundColor: "#FF5733"
                 }
             ]
         },
@@ -409,7 +409,7 @@
                     data: [40, 55, 75, 81, 56, 55, 40],
                     borderColor: "rgba(117, 113, 249, 0.9)",
                     borderWidth: "0",
-                    backgroundColor: "rgba(117, 113, 249, 0.5)"
+                    backgroundColor: "#FF5733"
                 }
             ]
         },

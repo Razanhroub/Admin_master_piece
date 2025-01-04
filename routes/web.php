@@ -44,14 +44,11 @@ Route::middleware(['auth', 'verified', 'admin'])->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 
     Route::controller(ThemeController::class)->group(function () {
-        Route::get('/app-calender', 'appcalendar');
-        Route::get('/app-profile', 'appprofile');
+
         Route::get('/chart-morris', 'chartmorris');
-        Route::get('/form-validation', 'formvalidation');
+      
         Route::get('/home', 'home')->name('home');
-        Route::get('/page-lock', 'pagelock');
-        Route::get('/table-basic', 'tablebasic');
-        Route::get('/uc-sweetalert', 'ucsweetalert');
+
         Route::get('master', 'master');
     });
 
@@ -60,11 +57,10 @@ Route::middleware(['auth', 'verified', 'admin'])->group(function () {
     Route::resource('/categories-table', CategoryController::class);
     Route::resource('/subcategories-table', SubcategoryController::class);
     Route::resource('/recipes-table', RecipeController::class);
-    Route::resource('/ingredients-table', IngredientController::class);
-    Route::resource('/Blogs-table', BlogController::class);
-    Route::resource('/comments-table', CommentController::class);
+    Route::resource('/blogs-table', BlogController::class);
+    
 });
-
+  
 Route::controller(UserSideController::class)->group(function () {
     // Route::get('/userhome', 'userhome');
     Route::get('/menu', 'menu');

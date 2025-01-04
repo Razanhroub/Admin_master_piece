@@ -130,54 +130,54 @@ class BlogController extends Controller
     }
     public function index()
     {
-        return view('theme.Blogs-table');
+        $blogs = Blog::with(['user', 'recipe'])->where('is_deleted', 0)->get();
+        return view('theme.blogs-table', compact('blogs'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
+    public function update(Request $request, $id)
     {
-        //
+        $request->validate([
+            'recipe_name' => 'required|string|max:255',
+            'instructions' => 'required|string',
+            'recipe_img' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+        ]);
+
+        $blog = Blog::findOrFail($id);
+        $recipe = Recipe::findOrFail($blog->recipe_id);
+        $recipe->recipe_name = $request->recipe_name;
+        $recipe->instructions = $request->instructions;
+
+        if ($request->hasFile('recipe_img')) {
+            if ($recipe->recipe_img) {
+                $oldImagePath = public_path('Userassets/images/recipes/' . $recipe->recipe_img);
+                if (file_exists($oldImagePath)) {
+                    unlink($oldImagePath);
+                }
+            }
+
+            $image = $request->file('recipe_img');
+            $imageName = time() . '.' . $image->getClientOriginalExtension();
+            $image->move(public_path('Userassets/images/recipes'), $imageName);
+            $recipe->recipe_img = $imageName;
+        }
+
+        $recipe->save();
+
+        return response()->json(['message' => 'Blog updated successfully.']);
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(Request $request)
+    public function destroy($id)
     {
-        //
+        $blog = Blog::findOrFail($id);
+        $blog->is_deleted = 1;
+        $blog->save();
+
+        return redirect()->route('blogs-table.index')->with('success', 'Blog deleted successfully!');
     }
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(Blog $blog)
+    public function edit($id)
     {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(Blog $blog)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, Blog $blog)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(Blog $blog)
-    {
-        //
+        $blog = Blog::with('recipe')->findOrFail($id);
+        return response()->json($blog);
     }
 }
