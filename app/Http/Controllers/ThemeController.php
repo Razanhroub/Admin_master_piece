@@ -32,22 +32,48 @@ class ThemeController extends Controller
             ->groupBy('address')
             ->get();
         $recentUsers = User::orderBy('created_at', 'desc')->take(10)->get();
-
+    
         // Fetch the most active users based on blog postings
         $mostActiveUsers = Blog::select('user_id', DB::raw('count(*) as blog_count'))
             ->groupBy('user_id')
             ->orderBy('blog_count', 'desc')
             ->take(3)
             ->get();
-
+    
         // Fetch user details for the most active users
         $mostActiveUsersDetails = User::whereIn('id', $mostActiveUsers->pluck('user_id'))->get();
-
-        return view('theme.home', compact('totalUsers', 'totalRecipes', 'totalCategories', 'totalBlogs', 'usersPerCountry', 'recentUsers', 'mostActiveUsers', 'mostActiveUsersDetails'));
-
-
-      
-
+    
+        // Fetch the top 3 most liked blogs
+        $topLikedBlogs = DB::table('likes')
+            ->select('blog_id', DB::raw('count(*) as like_count'))
+            ->whereNotNull('blog_id')
+            ->groupBy('blog_id')
+            ->orderBy('like_count', 'desc')
+            ->take(3)
+            ->get();
+    
+        // Get the blog details along with the associated recipe names
+        $topLikedBlogDetails = $topLikedBlogs->map(function ($like) {
+            $blog = Blog::find($like->blog_id);
+            $recipe = Recipe::find($blog->recipe_id);
+            return [
+                'blog_id' => $blog->blog_id,
+                'like_count' => $like->like_count,
+                'recipe_name' => $recipe->recipe_name,
+            ];
+        });
+    
+        return view('theme.home', compact(
+            'totalUsers', 
+            'totalRecipes', 
+            'totalCategories', 
+            'totalBlogs', 
+            'usersPerCountry', 
+            'recentUsers', 
+            'mostActiveUsers', 
+            'mostActiveUsersDetails', 
+            'topLikedBlogDetails'
+        ));
     }
 
     public function pageerror400()

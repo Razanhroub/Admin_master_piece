@@ -82,6 +82,20 @@
                     </div>
                 </div>
             </div>
+
+            <!-- New section for Top 3 Most Liked Blogs -->
+            <div class="row mt-4">
+                <div class="col-lg-12">
+                    <div class="card">
+                        <div class="card-body">
+                            <h3 class="card-title">Top 3 Most Liked Blogs</h3>
+                            <div class="chart-container" style="position: relative; height:40vh; width:80vw">
+                                <canvas id="topLikedBlogsChart"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
     <!-- #/ container -->
@@ -90,6 +104,10 @@
     <script>
         document.addEventListener('DOMContentLoaded', function () {
             var ctx1 = document.getElementById('usersPerCountryChart').getContext('2d');
+            var gradient1 = ctx1.createLinearGradient(0, 0, 0, 400);
+            gradient1.addColorStop(0, 'rgba(255, 87, 51, 0.2)');
+            gradient1.addColorStop(1, 'rgba(255, 87, 51, 1)');
+
             var usersPerCountryChart = new Chart(ctx1, {
                 type: 'bar',
                 data: {
@@ -97,8 +115,8 @@
                     datasets: [{
                         label: 'Number of Users',
                         data: @json($usersPerCountry->pluck('user_count')),
-                        backgroundColor: 'rgba(54, 162, 235, 0.2)',
-                        borderColor: 'rgba(54, 162, 235, 1)',
+                        backgroundColor: gradient1,
+                        borderColor: 'rgba(255, 87, 51, 1)',
                         borderWidth: 1
                     }]
                 },
@@ -112,6 +130,10 @@
             });
 
             var ctx2 = document.getElementById('mostActiveUsersChart').getContext('2d');
+            var gradient2 = ctx2.createLinearGradient(0, 0, 0, 400);
+            gradient2.addColorStop(0, 'rgba(255, 87, 51, 0.2)');
+            gradient2.addColorStop(1, 'rgba(255, 87, 51, 1)');
+
             var mostActiveUsersChart = new Chart(ctx2, {
                 type: 'bar',
                 data: {
@@ -119,8 +141,34 @@
                     datasets: [{
                         label: 'Number of Blogs',
                         data: @json($mostActiveUsers->pluck('blog_count')),
-                        backgroundColor: 'rgba(75, 192, 192, 0.2)',
-                        borderColor: 'rgba(75, 192, 192, 1)',
+                        backgroundColor: gradient2,
+                        borderColor: 'rgba(255, 87, 51, 1)',
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    scales: {
+                        y: {
+                            beginAtZero: true
+                        }
+                    }
+                }
+            });
+
+            var ctx3 = document.getElementById('topLikedBlogsChart').getContext('2d');
+            var gradient3 = ctx3.createLinearGradient(0, 0, 0, 400);
+            gradient3.addColorStop(0, 'rgba(255, 87, 51, 0.2)');
+            gradient3.addColorStop(1, 'rgba(255, 87, 51, 1)');
+
+            var topLikedBlogsChart = new Chart(ctx3, {
+                type: 'bar',
+                data: {
+                    labels: @json($topLikedBlogDetails->pluck('recipe_name')),
+                    datasets: [{
+                        label: 'Number of Likes',
+                        data: @json($topLikedBlogDetails->pluck('like_count')),
+                        backgroundColor: gradient3,
+                        borderColor: 'rgba(255, 87, 51, 1)',
                         borderWidth: 1
                     }]
                 },

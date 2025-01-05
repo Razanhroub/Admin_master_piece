@@ -25,25 +25,30 @@ Fixing Order => Base + Typography >> General Layout + Grid >> Page Layout + Comp
 @import url(../plugins/metismenu/css/metisMenu.min.css);
 @import url(../plugins/bootstrap-select/dist/css/bootstrap-select.min.css);
 @import url(../plugins/tables/css/datatable/dataTables.bootstrap4.min.css);
-
 .gradient-1, .dropdown-mega-menu .ext-link.link-1 a, .morris-hover, .datamaps-hoverover {
-  background-image: linear-gradient(230deg, #759bff, #843cf6); }
+  background-image: linear-gradient(230deg, #CC2900, #FF5733); /* Darker to base color */
+}
 
 .gradient-2, .dropdown-mega-menu .ext-link.link-3 a {
-  background-image: linear-gradient(230deg, #fc5286, #fbaaa2); }
+  background-image: linear-gradient(230deg, #FF5733, #FF704D); /* Base color to slightly lighter */
+}
 
 .gradient-3, .dropdown-mega-menu .ext-link.link-2 a, .header-right .icons .user-img .activity {
-  background-image: linear-gradient(230deg, #ffc480, #ff763b); }
+  background-image: linear-gradient(230deg, #FF704D, #FF8A66); /* Slightly lighter to lighter */
+}
 
 .gradient-4, .sidebar-right .nav-tabs .nav-item .nav-link.active::after, .sidebar-right .nav-tabs .nav-item .nav-link.active span i::before {
-  background-image: linear-gradient(230deg, #0e4cfd, #6a8eff); }
+  background-image: linear-gradient(230deg, #FF8A66, #FFA380); /* Lighter to even lighter */
+}
 
 .gradient-5 {
-  background-image: linear-gradient(to right, #f83600 0%, #f9d423 100%); }
- .blue-background {
-    background-color: blue;
-    color: white; /* Optional: To ensure text is visible on a blue background */
-    padding: 10px; /* Optional: To add some spacing inside the div */
+  background-image: linear-gradient(to right, #FFA380, #FFB399); /* Even lighter to lightest */
+}
+
+.blue-background {
+  background-color: blue;
+  color: white; /* Optional: To ensure text is visible on a blue background */
+  padding: 10px; /* Optional: To add some spacing inside the div */
 }
 .gradient-6 {
   background-image: linear-gradient(135deg, #97ABFF 10%, #123597 100%); }
