@@ -90,6 +90,11 @@
                 var recipeId = $this.data('recipe-id');
                 var isLiked = $this.hasClass('liked');
 
+                @if (!session('user_id'))
+                    window.location.href = '{{ route('user.userlogin') }}';
+                    return;
+                @endif
+
                 $.ajax({
                     url: isLiked ? '{{ route('blog.unlike') }}' : '{{ route('blog.like') }}',
                     method: 'POST',
