@@ -11,7 +11,7 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
 
     <!-- Favicon icon -->
-    <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('assets') }}/images/favicon.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('Userassets') }}/images/logo_icon.png">
     <!-- Pignose Calender -->
     <link href="{{ asset('assets') }}/plugins/pg-calendar/css/pignose.calendar.min.css" rel="stylesheet">
     <!-- Chartist -->
