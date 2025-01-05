@@ -90,11 +90,11 @@
                             <button type="button" id="add-ingredient" class="btn btn-custom-primary">Add
                                 Ingredient</button>
                         </div>
-                        <div class="form-group">
+                        {{-- <div class="form-group">
                             <label for="youtube_link">YouTube Video (Optional)</label>
                             <input type="text" id="youtube_link" name="youtube_link"
                                 class="form-control form-control-sm custom-input" placeholder="Paste YouTube iframe here">
-                        </div>
+                        </div> --}}
                         <input type="hidden" name="role" value="user">
                         <button type="submit" class="btn btn-custom-primary">Create Blog</button>
                     </form>
