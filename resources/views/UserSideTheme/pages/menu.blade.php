@@ -225,10 +225,9 @@
                         <p class="custom-card-text"><i class="fas fa-clock"></i> ${recipe.recipe_time} </p>
                         <p class="custom-card-text"><i class="fas fa-fire"></i> ${recipe.calories}  per serving</p>
                     </div>
-                    <div class="custom-card-actions mt-3">
+                    <div class="d-flex justify-content-center custom-card-actions mt-3">
                         <a href="/recipedetails/${recipe.recipe_id}" class="btn btn-primary">Recipe Details</a>
-                        <button class="btn btn-outline-secondary"><i class="fas fa-heart"></i></button>
-                        <button class="btn btn-outline-secondary"><i class="fas fa-bookmark"></i></button>
+                     
                     </div>
                 </div>
             </div>

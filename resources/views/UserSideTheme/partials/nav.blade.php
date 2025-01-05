@@ -25,7 +25,7 @@
                             <i class="fas fa-user"></i> {{ session('username') }}
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" style="color: black !important" href="{{ url('/p') }}">Profile</a>
+                            <a class="dropdown-item" style="color: black !important" href="{{ url('/edit-profile') }}">Profile</a>
                             <form action="{{ route('user.userlogout') }}" method="POST" style="display: inline;">
                                 @csrf
                                 <button type="submit" class="dropdown-item">Logout</button>

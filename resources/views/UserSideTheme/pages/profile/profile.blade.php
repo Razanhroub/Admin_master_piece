@@ -29,14 +29,14 @@
                     <!-- END profile-header-content -->
                     <!-- BEGIN profile-header-tab -->
                     <ul class="profile-header-tab nav nav-tabs">
-                        <li class="nav-item">
-                            <a href="p"  class="nav-link_  @yield('active-blogs')">blogs</a></li>
-                        <li class="nav-item">
+                        {{-- <li class="nav-item">
+                            <a href="p"  class="nav-link_  @yield('active-blogs')">blogs</a></li> --}}
+                        {{-- <li class="nav-item">
                             <a href="edit-profile" class="nav-link_  @yield('active-edit')">edit profile</a>
-                        </li>
-                        <li class="nav-item">
+                        </li> --}}
+                        {{-- <li class="nav-item">
                             <a href="userfollowers"  class="nav-link_  @yield('active-userfollowers')">followers</a>
-                        </li>
+                        </li> --}}
                         {{-- <li class="nav-item">
                             <a href="https://www.bootdey.com/snippets/view/bs4-profile-friend-list" target="__blank" class="nav-link_  @yield('active-profile')">followers</a>
                         </li> --}}
