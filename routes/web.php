@@ -88,5 +88,7 @@ Route::get('/recipedetails/{id}', [RecipeController::class, 'showRecipeDetails']
 Route::get('/menu', [FilterationController::class, 'showRecipesByCategory']);
 Route::get('/filter-recipes', [FilterationController::class, 'filterRecipesBySubcategory'])->name('recipes.filter');
 Route::get('/get-subcategories', [FilterationController::class, 'getSubcategories'])->name('subcategories.get');
+Route::post('/blog/like', [BlogController::class, 'likeBlog'])->name('blog.like');
+Route::post('/blog/unlike', [BlogController::class, 'unlikeBlog'])->name('blog.unlike');
 require __DIR__ . '/auth.php';  
 require __DIR__ . '/user.php';  

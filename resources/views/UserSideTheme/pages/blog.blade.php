@@ -57,8 +57,10 @@
                             <p>{{ $blog->recipe->instructions }}</p>
                         </div>
                         <div class="timeline-footer">
-                            <a href="javascript:;" class="m-r-15 text-inverse-lighter"><i
-                                    class="fa fa-thumbs-up fa-fw fa-lg m-r-3"></i> Like</a>
+                            <a href="javascript:;" class="m-r-15 text-inverse-lighter like-button {{ isset($userLikes) && in_array($blog->blog_id, $userLikes) ? 'liked' : '' }}" data-blog-id="{{ $blog->blog_id }}" data-recipe-id="{{ $blog->recipe->recipe_id }}">
+                                <i class="fa-regular fa-heart"></i>
+                            </a>
+                            <span class="like-count">{{ $blog->likes->count() }}</span>
                         </div>
                     </div>
                 </li>
@@ -73,4 +75,39 @@
             @endif
         </div>
     </section>
+
+    <style>
+        .liked .fa-heart {
+            color: red;
+        }
+    </style>
+
+    <script>
+        $(document).ready(function() {
+            $('.like-button').on('click', function() {
+                var $this = $(this);
+                var blogId = $this.data('blog-id');
+                var recipeId = $this.data('recipe-id');
+                var isLiked = $this.hasClass('liked');
+
+                $.ajax({
+                    url: isLiked ? '{{ route('blog.unlike') }}' : '{{ route('blog.like') }}',
+                    method: 'POST',
+                    data: {
+                        _token: '{{ csrf_token() }}',
+                        blog_id: blogId,
+                        recipe_id: recipeId
+                    },
+                    success: function(response) {
+                        if (response.success) {
+                            $this.toggleClass('liked');
+                            $this.find('i').toggleClass('fa-regular fa-heart fa-solid fa-heart');
+                            var likeCount = parseInt($this.siblings('.like-count').text());
+                            $this.siblings('.like-count').text(isLiked ? likeCount - 1 : likeCount + 1);
+                        }
+                    }
+                });
+            });
+        });
+    </script>
 @endsection

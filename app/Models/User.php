@@ -55,33 +55,17 @@ class User extends Authenticatable
     // Relationships
     public function blogs()
     {
-        return $this->hasMany(Blog::class);
+        return $this->hasMany(Blog::class, 'user_id', 'id');
     }
-
-    public function followers()
+    public function likes()
     {
-        return $this->belongsToMany(User::class, 'followers', 'following_id', 'follower_id');
+        return $this->hasMany(Like::class, 'user_id', 'id');
     }
+   
 
-    public function followings()
-    {
-        return $this->belongsToMany(User::class, 'followers', 'follower_id', 'following_id');
-    }
+  
 
-    public function comments()
-    {
-        return $this->hasMany(Comment::class);
-    }
-
-    public function ratings()
-    {
-        return $this->hasMany(Rating::class);
-    }
-
-    public function saveForLaters()
-    {
-        return $this->hasMany(SaveForLater::class);
-    }
+   
     public function updateProfile(array $data): bool
     {
         // dd($data);

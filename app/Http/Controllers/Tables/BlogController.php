@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Tables;
 
 use App\Models\Blog;
+use App\Models\Like;
 use App\Models\Recipe;
 use App\Models\Category;
 use App\Models\Ingredient;
@@ -10,6 +11,7 @@ use App\Models\Subcategory;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Redirect;
+use Symfony\Component\HttpFoundation\Session\Session;
 
 
 class BlogController extends Controller
@@ -109,7 +111,13 @@ class BlogController extends Controller
     }
     public function blog(Request $request)
     {
-        $blogs = Blog::with(['user', 'recipe'])
+
+        if (session('user_id')) {
+            $user_id = session('user_id');
+            $userLikes = Like::where('user_id', $user_id)->pluck('blog_id')->toArray();
+        }
+
+        $blogs = Blog::with(['user', 'recipe', 'likes'])
             ->where('is_deleted', 0)
             ->whereHas('recipe', function ($query) {
                 $query->where('is_deleted', 0);
@@ -119,14 +127,18 @@ class BlogController extends Controller
             })
             ->orderBy('created_at', 'desc')
             ->paginate(10);
-    
+
         if ($request->ajax()) {
             return response()->json([
                 'blogs' => $blogs,
             ]);
         }
-    
-        return view('UserSideTheme.pages.blog', compact('blogs'));
+
+        if (session('user_id')) {
+            return view('UserSideTheme.pages.blog', compact('blogs', 'userLikes'));
+        } else {
+            return view('UserSideTheme.pages.blog', compact('blogs'));
+        }
     }
     public function index()
     {
@@ -179,5 +191,42 @@ class BlogController extends Controller
     {
         $blog = Blog::with('recipe')->findOrFail($id);
         return response()->json($blog);
+    }
+
+    public function likeBlog(Request $request)
+    {
+        if (!session('user_id')) {
+            // Store the intended URL in the session
+            session(['intended_url' => url()->current()]);
+            // Redirect to user login page if user_id is not found
+            return Redirect::to('userlogin');
+        }
+        $user_id = session('user_id');
+        $blog_id = $request->blog_id;
+        $recipe_id = $request->recipe_id;
+
+        $like = Like::create([
+            'user_id' => $user_id,
+            'blog_id' => $blog_id,
+            'recipe_id' => $recipe_id,
+        ]);
+
+        return response()->json(['success' => true, 'like_id' => $like->like_id]);
+    }
+
+    public function unlikeBlog(Request $request)
+    {
+        if (!session('user_id')) {
+            // Store the intended URL in the session
+            session(['intended_url' => url()->current()]);
+            // Redirect to user login page if user_id is not found
+            return Redirect::to('userlogin');
+        }
+        $user_id = session('user_id');
+        $blog_id = $request->blog_id;
+
+        Like::where('user_id', $user_id)->where('blog_id', $blog_id)->delete();
+
+        return response()->json(['success' => true]);
     }
 }

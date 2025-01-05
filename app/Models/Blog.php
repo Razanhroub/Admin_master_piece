@@ -23,22 +23,15 @@ class Blog extends Model
         return $this->belongsTo(User::class, 'user_id', 'id');
     }
 
-    public function comments()
-    {
-        return $this->hasMany(Comment::class);
-    }
+    
     public function recipe()
 {
     return $this->belongsTo(Recipe::class, 'recipe_id', 'recipe_id');
 }
+public function likes()
+{
+    return $this->hasMany(Like::class, 'blog_id', 'blog_id');
+}
 
-    public function ratings()
-    {
-        return $this->hasMany(Rating::class);
-    }
-
-    public function saveForLaters()
-    {
-        return $this->hasMany(SaveForLater::class);
-    }
+   
 }

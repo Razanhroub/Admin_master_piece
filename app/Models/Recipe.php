@@ -26,7 +26,14 @@ class Recipe extends Model
 
     // Relationships
 
-
+    public function likes()
+    {
+        return $this->hasMany(Like::class, 'recipe_id', 'recipe_id');
+    }
+    public function blogs()
+    {
+        return $this->hasMany(Blog::class, 'recipe_id', 'recipe_id');
+    }
    
     public function ingredients()
     {
